@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: Home
+---
+
+<section class="hero">
+  <h1>Pixel River <span>Studio</span></h1>
+  <p class="tagline">Indie Games inspired by 2000s classics — modernized, 3D, with real depth.</p>
+</section>
+
+<section class="game-teaser">
+  <h2>RiverTycoon</h2>
+  <p>From broke indie dev to tech CEO. Grind jobs, buy gear, build your empire — in a world full of iFoons, Samsong devices and Damazon Crime deliveries.</p>
+  <div class="badges">
+    <span class="badge">In Development</span>
+    <span class="badge">Unity 6</span>
+    <span class="badge">Mobile</span>
+  </div>
+</section>
+
+<section class="latest-devlog">
+  <h2>Latest DevLog</h2>
+  {% set latestPost = collections.devlog[0] %}
+  {% if latestPost %}
+    <article class="post-card">
+      <time>{{ latestPost.date | dateDisplay }}</time>
+      <h3><a href="{{ latestPost.url }}">{{ latestPost.data.title }}</a></h3>
+      <p>{{ latestPost.data.summary }}</p>
+    </article>
+    <a href="/devlog/" class="btn">Alle DevLogs &rarr;</a>
+  {% else %}
+    <p>DevLog-Eintraege folgen in Kuerze.</p>
+  {% endif %}
+</section>
+
+<section class="social">
+  <h2>Follow the Build</h2>
+  <div class="social-links">
+    <a href="https://github.com/PatrickRoller81" target="_blank">GitHub</a>
+    <a href="https://twitter.com/RiverTycoonDev" target="_blank">X / Twitter</a>
+    <a href="https://www.tiktok.com/@RiverTycoonDev" target="_blank">TikTok</a>
+  </div>
+</section>

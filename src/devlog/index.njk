@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: DevLog
+summary: Alle Entwicklungs-Updates von RiverTycoon und Pixel River Studio.
+---
+
+<div class="page-header">
+  <h1>DevLog</h1>
+  <p>Monatliche Updates aus der Entwicklung von RiverTycoon.</p>
+</div>
+
+<div class="post-list">
+  {% for post in collections.devlog %}
+  <article class="post-card">
+    <time>{{ post.date | dateDisplay }}</time>
+    <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <p>{{ post.data.summary }}</p>
+    <a href="{{ post.url }}">Weiterlesen &rarr;</a>
+  </article>
+  {% else %}
+  <p>Noch keine Eintraege. Der erste DevLog kommt bald.</p>
+  {% endfor %}
+</div>

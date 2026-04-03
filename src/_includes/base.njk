@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — Pixel River Studio</title>
+  <meta name="description" content="{{ summary or 'Indie Game Studio. Wir bauen RiverTycoon.' }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo">Pixel River <span>Studio</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/devlog/">DevLog</a>
+    </nav>
+  </header>
+  <main>{{ content | safe }}</main>
+  <footer>
+    <p>&copy; 2026 Pixel River Studio &middot; <a href="https://github.com/PatrickRoller81" target="_blank">GitHub</a></p>
+  </footer>
+</body>
+</html>
