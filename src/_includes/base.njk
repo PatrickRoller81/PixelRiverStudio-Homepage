@@ -18,6 +18,27 @@
     </nav>
   </header>
   <main>{{ content | safe }}</main>
+
+  {% if tags and ('devlog' in tags) %}
+  <section class="comments">
+    <h2>Kommentare</h2>
+    <script src="https://giscus.app/client.js"
+      data-repo="PatrickRoller81/PixelRiverStudio-Homepage"
+      data-repo-id="R_kgDOR4XlDQ"
+      data-category="DevLog Comments"
+      data-category-id="DIC_kwDOR4XlDc4C6hfr"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark"
+      data-lang="de"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+  {% endif %}
   <footer>
     <p>&copy; 2026 Pixel River Studio &middot; <a href="https://github.com/PatrickRoller81" target="_blank">GitHub</a> &middot; <a href="/impressum/">Impressum</a></p>
   </footer>
