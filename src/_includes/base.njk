@@ -19,7 +19,7 @@
   </header>
   <main>{{ content | safe }}</main>
 
-  {% if tags and ('devlog' in tags) %}
+  {% if comments == true %}
   <section class="comments">
     <h2>Kommentare</h2>
     <script src="https://giscus.app/client.js"

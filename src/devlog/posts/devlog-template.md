@@ -1,8 +1,9 @@
 ---
 title: "DevLog #X — Titel hier"
 date: 2026-04-03
-tags: []
+tags: [devlog, rivertycoon]
 summary: "Kurze Zusammenfassung fuer die Uebersichtsseite (1-2 Saetze)."
+comments: true
 ---
 
 ## Was war diese Woche?
