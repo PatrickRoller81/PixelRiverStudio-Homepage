@@ -1,0 +1,4 @@
+# Eleventy ignore file — diese Pfade werden beim Build komplett ignoriert
+**/.vs/**
+.vs/
+src/devlog/posts/.vs/**
