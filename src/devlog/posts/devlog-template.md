@@ -1,5 +1,5 @@
-eleventyExcludeFromCollections: true
 ---
+eleventyExcludeFromCollections: true
 title: "DevLog #X — Titel hier"
 date: 2026-04-03
 tags: [devlog, rivertycoon]
