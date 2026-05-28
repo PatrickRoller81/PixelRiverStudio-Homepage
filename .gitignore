@@ -11,3 +11,14 @@ Thumbs.db
 *.user
 *.slnx
 .vscode/
+
+# OpenSpec
+openspec/proposals/
+openspec/.cache/
+
+# Graphify
+graphify-out/
+.graphify-cache/
+
+# Repomix
+repomix-output.txt

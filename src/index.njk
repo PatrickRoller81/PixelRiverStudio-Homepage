@@ -1,43 +1,195 @@
 ---
 layout: base.njk
-title: Home
+title: KI-Apps & Mobile Development
+description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps und Automatisierungen. Patrick Roller, Horb am Neckar.
 ---
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Pixel River <span>Studio</span></h1>
-  <p class="tagline">Indie Games inspired by 2000s classics — modernized, 3D, with real depth.</p>
-</section>
-
-<section class="game-teaser">
-  <h2>RiverTycoon</h2>
-  <p>From broke indie dev to tech CEO. Grind jobs, buy gear, build your empire — in a world full of iFoons, Samsong devices and Damazon Crime deliveries.</p>
-  <div class="badges">
-    <span class="badge">In Development</span>
-    <span class="badge">Unity 6</span>
-    <span class="badge">Mobile</span>
+  <div class="hero-tag">
+    <span class="dot-pulse"></span>
+    Verfügbar für neue Projekte
+  </div>
+  <h1>
+    Intelligente Software,<br>
+    <span class="ghost">die Ihr Business</span><br>
+    <span class="accent">wachsen lässt.</span>
+  </h1>
+  <p class="hero-sub">
+    KI-Agenten, Mobile Apps und Automatisierung — individuell entwickelt.
+    Von Horb am Neckar, für den ganzen deutschsprachigen Raum.
+  </p>
+  <div class="hero-btns">
+    <a href="mailto:info@pixelriverstudio.de" class="btn-primary">Projekt anfragen</a>
+    <a href="/lokal-content-bot/" class="btn-outline">Content-Bot Demo →</a>
   </div>
 </section>
 
-<section class="latest-devlog">
-  <h2>Latest DevLog</h2>
-  {% set latestPost = collections.devlog[0] %}
-  {% if latestPost %}
-    <article class="post-card">
-      <time>{{ latestPost.date | dateDisplay }}</time>
-      <h3><a href="{{ latestPost.url }}">{{ latestPost.data.title }}</a></h3>
-      <p>{{ latestPost.data.summary }}</p>
-    </article>
-    <a href="/devlog/" class="btn">Alle DevLogs &rarr;</a>
-  {% else %}
-    <p>DevLog-Eintraege folgen in Kuerze.</p>
-  {% endif %}
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="tick-item"><b>▸</b>KI-Agenten</span>
+    <span class="tick-item"><b>▸</b>Flutter Mobile Apps</span>
+    <span class="tick-item"><b>▸</b>Laravel Backend</span>
+    <span class="tick-item"><b>▸</b>n8n Automatisierung</span>
+    <span class="tick-item"><b>▸</b>Supabase</span>
+    <span class="tick-item"><b>▸</b>SaaS Produkte</span>
+    <span class="tick-item"><b>▸</b>DSGVO-konform</span>
+    <span class="tick-item"><b>▸</b>Horb am Neckar</span>
+    <span class="tick-item"><b>▸</b>KI-Agenten</span>
+    <span class="tick-item"><b>▸</b>Flutter Mobile Apps</span>
+    <span class="tick-item"><b>▸</b>Laravel Backend</span>
+    <span class="tick-item"><b>▸</b>n8n Automatisierung</span>
+    <span class="tick-item"><b>▸</b>Supabase</span>
+    <span class="tick-item"><b>▸</b>SaaS Produkte</span>
+    <span class="tick-item"><b>▸</b>DSGVO-konform</span>
+    <span class="tick-item"><b>▸</b>Horb am Neckar</span>
+  </div>
+</div>
+
+<!-- USPs -->
+<section class="section">
+  <div class="section-label">Was wir bauen</div>
+  <div class="usp-grid">
+    <div class="usp-item">
+      <span class="usp-num">01 — KI-SaaS</span>
+      <div class="usp-title">KI-Agenten & Automatisierung</div>
+      <div class="usp-desc">Wiederkehrende Aufgaben erledigt die Maschine. LLM-Integration, Prompt-Engineering, n8n-Workflows — skalierbar und DSGVO-konform in Frankfurt gehostet.</div>
+    </div>
+    <div class="usp-item">
+      <span class="usp-num">02 — App-Dev</span>
+      <div class="usp-title">Mobile Apps & Web-Apps</div>
+      <div class="usp-desc">Flutter für iOS und Android mit Laravel-Backend. Von der Vereins-App bis zum B2B-Werkzeug — nativ, schnell, wartbar. Mit Festpreis und Wartungsvertrag.</div>
+    </div>
+    <div class="usp-item">
+      <span class="usp-num">03 — Gaming</span>
+      <div class="usp-title">Tech-Leuchtturm</div>
+      <div class="usp-desc">Wer ein performantes Mobile Game mit Physics, State-Management und AI-Assets baut, beherrscht auch Ihre Web-App. Das ist kein Zufall — das ist der Plan.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT BOT TEASER -->
+  <div class="section-label">Eigenes Produkt — Säule 1</div>
+  <div class="bot-section">
+    <div class="bot-copy">
+      <h2>Lokal-Content-Bot</h2>
+      <p style="font-size:0.85rem;color:var(--text-2);line-height:1.75;margin:0.75rem 0 0.25rem">
+        Thema eingeben, Inhalt erhalten. Der KI-Agent schreibt in Sekunden
+        einen SEO-Blogpost und eine Instagram Caption — ohne Agentur,
+        ohne Abo bei einem US-Anbieter.
+      </p>
+      <div class="bot-pricing">
+        <span class="price-pill">Starter · 39 €/mo</span>
+        <span class="price-pill active">Pro · 69 €/mo</span>
+        <span class="price-pill">Agency · 99 €/mo</span>
+      </div>
+      <a href="/lokal-content-bot/" class="btn-outline" style="display:inline-block;margin-top:0.25rem;font-size:0.8rem;font-family:var(--font-mono)">Live Demo →</a>
+    </div>
+    <div class="bot-mockup">
+      <div class="mockup-bar">
+        <span style="background:#ff5f57"></span>
+        <span style="background:#febc2e"></span>
+        <span style="background:#28c840"></span>
+      </div>
+      <div class="mock-input">
+        <span style="color:rgba(59,150,255,0.4)">❯</span>
+        Neuer Haarschnitt-Trend Frühjahr<span class="cursor"></span>
+      </div>
+      <div class="mock-out">
+        <div class="mock-label blog">Blogpost</div>
+        <div class="mock-text">Frische Frühjahrs-Cuts: Die 5 Trends, die Ihr Salon jetzt anbieten sollte…</div>
+      </div>
+      <div class="mock-out">
+        <div class="mock-label insta">Instagram</div>
+        <div class="mock-text">🌸 Frühling, neue Styles! Lass dich inspirieren — jetzt Termin sichern. #Friseur #Frühjahr #Hairstyle</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="section-label">Referenzen</div>
+  <h2>Echte Projekte</h2>
+  <p class="section-sub">Keine Mockups, kein Stock-Content. Alles davon läuft oder wird gerade gebaut.</p>
+  <div class="cases">
+    <div class="case live">
+      <span class="case-tag tag-live">In Produktion</span>
+      <div class="case-title">Narrenzunft Hochdorf — Vereins-App</div>
+      <div class="case-desc">Flutter + Laravel 11: Mitgliederverwaltung, Veranstaltungskalender, Ridesharing, Dokumente, Dark-Mode CI.</div>
+      <div class="case-stack">
+        <span class="tag-tech">Flutter</span>
+        <span class="tag-tech">Laravel 11</span>
+        <span class="tag-tech">MariaDB</span>
+        <span class="tag-tech">IONOS</span>
+      </div>
+    </div>
+    <div class="case wip">
+      <span class="case-tag tag-wip">In Abnahme</span>
+      <div class="case-title">Kächele Sound &amp; Light</div>
+      <div class="case-desc">Unternehmensauftritt für Veranstaltungstechnik. Responsive, DSGVO-konform, gesichertes Kontaktformular-Backend.</div>
+      <div class="case-stack">
+        <span class="tag-tech">WordPress</span>
+        <span class="tag-tech">CF7</span>
+        <span class="tag-tech">DSGVO</span>
+      </div>
+    </div>
+    <div class="case next">
+      <span class="case-tag tag-next">In Planung</span>
+      <div class="case-title">Hölzer Jungs Hochdorf — VfB Fanclub App</div>
+      <div class="case-desc">Ticket-Verteilung, Punktesystem, KI-News-Feed (n8n + GPT), PayPal-Integration für den VfB Stuttgart Fanclub.</div>
+      <div class="case-stack">
+        <span class="tag-tech">Flutter</span>
+        <span class="tag-tech">Laravel</span>
+        <span class="tag-tech">Supabase</span>
+        <span class="tag-tech">n8n</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEISTUNGEN & PREISE -->
+  <div class="section-label" id="leistungen">Leistungen & Preise</div>
+  <h2>Was ich anbiete</h2>
+  <p class="section-sub">Direkter Kontakt, faire Preise. Kein Agentur-Overhead, kein Outsourcing.</p>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-name">Landing Page</div>
+      <div class="price-desc">Schnell, sauber, kein Overhead. Ideal für ein Produkt oder ein Event.</div>
+      <div class="price-val">ab 600 €</div>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Website</div>
+      <div class="price-desc">5–10 Seiten, responsive, DSGVO-konform, kein Cookie-Banner-Chaos.</div>
+      <div class="price-val">ab 1.500 €</div>
+    </div>
+    <div class="price-card highlight">
+      <div class="price-name">App / Web-App</div>
+      <div class="price-desc">Verein, B2B, KI-Funktion, MVP. Festpreis + optionaler Wartungsvertrag.</div>
+      <div class="price-val">ab 3.500 €</div>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Stundenbasis</div>
+      <div class="price-desc">Fixes, Erweiterungen, Beratung bei bestehenden Projekten.</div>
+      <div class="price-val">65 €/h</div>
+    </div>
+  </div>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:3rem">
+    Alle Preise netto. Kleinunternehmer gem. § 19 UStG — keine Umsatzsteuer.
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h3>Projekt in der Planung?</h3>
+    <p>Schreiben Sie mir direkt — kein Formular, kein Callcenter.</p>
+    <a href="mailto:info@pixelriverstudio.de" class="btn-primary">info@pixelriverstudio.de</a>
+  </div>
+
 </section>
 
-<section class="social">
-  <h2>Follow the Build</h2>
-  <div class="social-links">
-    <a href="https://github.com/PatrickRoller81" target="_blank">GitHub</a>
-    <a href="https://twitter.com/RiverTycoonDev" target="_blank">X / Twitter</a>
-    <a href="https://www.tiktok.com/@RiverTycoonDev" target="_blank">TikTok</a>
+<!-- GAMING STRIP -->
+<div class="gaming-bar">
+  <div>
+    <div class="gaming-label">Säule 3 — Tech-Leuchtturm</div>
+    <div class="gaming-title">RiverTycoon — Mobile Game</div>
+    <div class="gaming-desc">Unity 6 · Android & iOS · In Development</div>
   </div>
-</section>
+  <a href="/gaming/" class="btn-gaming">DevLog ansehen →</a>
+</div>

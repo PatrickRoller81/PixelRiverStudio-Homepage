@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — Pixel River Studio</title>
-  <meta name="description" content="{{ summary or 'Indie Game Studio. Wir bauen RiverTycoon.' }}">
+  <meta name="description" content="{{ description or 'KI-gestützte Web-Apps, Mobile Apps und Automatisierungen für Ihr Business. Patrick Roller — Pixel River Studio, Horb am Neckar.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a href="/" class="logo">
-      <img src="/assets/img/logo.svg" alt="Pixel River Studio" height="40" width="38">
-      <span class="logo-text">Pixel River <span>Studio</span></span>
-    </a>
+
+  <header>
     <nav>
-      <a href="/">Home</a>
-      <a href="/devlog/">DevLog</a>
-      <a href="/leistungen/">Leistungen</a>
-      <a href="/impressum/">Impressum</a>
+      <a href="/" class="logo-wrap">
+        <img src="/assets/img/logo.svg" alt="Pixel River Studio Logo" class="logo-img">
+        <span class="logo-text">Pixel River <em>Studio</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#leistungen">Leistungen</a></li>
+        <li><a href="/lokal-content-bot/">Content-Bot</a></li>
+        <li><a href="/gaming/">Gaming</a></li>
+        <li><a href="mailto:info@pixelriverstudio.de" class="btn-cta">Kontakt</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>{{ content | safe }}</main>
 
   {% if comments == true %}
-  <section class="comments">
-    <h2>Kommentare</h2>
+  <section class="comments-wrap">
+    <h2 class="comments-title">Kommentare</h2>
     <script src="https://giscus.app/client.js"
       data-repo="PatrickRoller81/PixelRiverStudio-Homepage"
       data-repo-id="R_kgDOR4XlDQ"
@@ -42,8 +49,15 @@
     </script>
   </section>
   {% endif %}
+
   <footer>
-    <p>&copy; 2026 Pixel River Studio &middot; <a href="https://github.com/PatrickRoller81" target="_blank">GitHub</a> &middot; <a href="/impressum/">Impressum</a></p>
+    <span class="foot-copy">© 2026 Pixel River Studio · Patrick Roller · Im Reesengarten 29 · 72160 Horb am Neckar</span>
+    <ul class="foot-links">
+      <li><a href="https://github.com/PatrickRoller81" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="/impressum/">Impressum</a></li>
+      <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul>
   </footer>
+
 </body>
 </html>

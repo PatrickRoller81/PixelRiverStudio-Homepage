@@ -1,0 +1,134 @@
+---
+layout: base.njk
+title: Lokal-Content-Bot
+description: KI-Content auf Knopfdruck für lokale Unternehmen. SEO-Blogpost und Instagram Caption in Sekunden.
+---
+
+<div class="lcb-wrap">
+
+  <a href="/" class="page-back">← zurück</a>
+
+  <div class="hero-tag" style="margin-bottom:1.25rem">
+    <span class="dot-pulse"></span>
+    Live Demo
+  </div>
+  <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.75rem">
+    KI-Content auf Knopfdruck<br>
+    <span style="color:var(--blue)">für lokale Unternehmen</span>
+  </h1>
+  <p style="font-size:0.88rem;color:var(--text-2);line-height:1.75;margin-bottom:2.5rem">
+    Thema oder Dienstleistung eingeben — der KI-Agent schreibt sofort
+    einen SEO-Blogpost und eine Instagram Caption.
+  </p>
+
+  <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);padding:1.5rem;display:flex;flex-direction:column;gap:1rem">
+
+    <div class="lcb-input-wrap">
+      <input
+        id="lcb-input"
+        class="lcb-input"
+        type="text"
+        placeholder="z.B. Frühjahrs-Check Fahrradwerkstatt, Umzug München, Zahnarzt Bleaching…"
+      >
+      <button id="lcb-btn" class="lcb-btn">Generieren</button>
+    </div>
+
+    <div id="lcb-error"  class="lcb-error"></div>
+    <div id="lcb-loading" class="lcb-loading">
+      <span class="spin"></span>KI-Agenten arbeiten…
+    </div>
+
+    <div id="lcb-output" class="lcb-output" style="display:none;flex-direction:column;gap:0.75rem">
+      <div class="lcb-out-box blog">
+        <div class="lcb-out-header">
+          <span class="lcb-out-label">SEO-Blogpost</span>
+          <button class="lcb-copy-btn" data-target="lcb-blog-text">Kopieren</button>
+        </div>
+        <div id="lcb-blog-text" class="lcb-out-text"></div>
+      </div>
+      <div class="lcb-out-box insta">
+        <div class="lcb-out-header">
+          <span class="lcb-out-label">Instagram Caption</span>
+          <button class="lcb-copy-btn" data-target="lcb-insta-text">Kopieren</button>
+        </div>
+        <div id="lcb-insta-text" class="lcb-out-text"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-top:1rem;text-align:center">
+    Demo — Inhalte als Entwurf. Vor Veröffentlichung bitte prüfen.
+  </p>
+
+</div>
+
+<script>
+  const WEBHOOK = window.N8N_WEBHOOK_URL || null;
+  const input   = document.getElementById('lcb-input');
+  const btn     = document.getElementById('lcb-btn');
+  const errBox  = document.getElementById('lcb-error');
+  const loader  = document.getElementById('lcb-loading');
+  const output  = document.getElementById('lcb-output');
+
+  function show(el){ el.style.display = el.classList.contains('lcb-output') ? 'flex' : 'block'; }
+  function hide(el){ el.style.display = 'none'; }
+  function reset(){ hide(errBox); hide(loader); hide(output); }
+
+  btn.addEventListener('click', async () => {
+    const topic = input.value.trim();
+    if (!topic) return;
+    reset();
+    btn.disabled = true;
+    show(loader);
+    try {
+      let blog = '', instagram = '';
+      if (WEBHOOK) {
+        const res  = await fetch(WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ topic }) });
+        if (!res.ok) throw new Error('Webhook Fehler: ' + res.status);
+        const data = await res.json();
+        blog = data.blog || data.blogpost || '';
+        instagram = data.instagram || data.caption || '';
+      } else {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            messages: [{ role:'user', content:
+              `Du bist ein Content-Experte für lokale Unternehmen in Deutschland.\nErstelle für das folgende Thema zwei Texte auf Deutsch:\n\n1. BLOGPOST: SEO-optimiert, ca. 200 Wörter, H1-Überschrift, Intro, 3–4 Absätze, Call-to-Action.\n2. INSTAGRAM: Max. 150 Wörter mit 5 relevanten Hashtags.\n\nAntworte NUR in diesem JSON-Format, ohne Markdown:\n{"blog":"...","instagram":"..."}\n\nThema: ${topic}` }]
+          })
+        });
+        if (!res.ok) throw new Error('API Fehler: ' + res.status);
+        const d = await res.json();
+        const parsed = JSON.parse(d.content?.[0]?.text || '{}');
+        blog = parsed.blog || '';
+        instagram = parsed.instagram || '';
+      }
+      document.getElementById('lcb-blog-text').textContent  = blog;
+      document.getElementById('lcb-insta-text').textContent = instagram;
+      hide(loader);
+      show(output);
+    } catch(e) {
+      hide(loader);
+      errBox.textContent = 'Fehler: ' + e.message;
+      show(errBox);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  input.addEventListener('keydown', e => { if(e.key === 'Enter') btn.click(); });
+
+  document.querySelectorAll('.lcb-copy-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      const text = document.getElementById(b.dataset.target).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = b.textContent;
+        b.textContent = '✓ Kopiert';
+        setTimeout(() => { b.textContent = orig; }, 2000);
+      });
+    });
+  });
+</script>

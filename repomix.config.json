@@ -1,0 +1,24 @@
+{
+  "output": {
+    "filePath": "repomix-output.txt",
+    "style": "markdown"
+  },
+  "include": [
+    "src/**",
+    ".eleventy.js",
+    "netlify.toml",
+    "package.json",
+    "openspec/specs/**"
+  ],
+  "ignore": {
+    "customPatterns": [
+      "graphify-out/**",
+      "openspec/**",
+      "repomix-output.txt",
+      "_site/**",
+      "node_modules/**",
+      "src/assets/img/**",
+      "src/devlog/posts/devlog-template.md"
+    ]
+  }
+}

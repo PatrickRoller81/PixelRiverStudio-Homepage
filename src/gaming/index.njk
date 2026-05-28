@@ -1,0 +1,44 @@
+---
+layout: base.njk
+title: RiverTycoon — Gaming & DevLog
+description: Pixel River Studio baut RiverTycoon — ein Indie Mobile Game für Android & iOS. DevLog mit allen Entwicklungs-Updates.
+---
+
+<div class="page-wrap">
+
+  <a href="/" class="page-back">← zurück zum Studio</a>
+
+  <div class="section-label">Indie Game Dev</div>
+  <h1 class="page-h1">
+    RiverTycoon
+    <span style="color:var(--cyan);font-size:1.4rem;font-weight:400"> — Mobile Game</span>
+  </h1>
+  <p style="font-size:0.9rem;color:var(--text-2);max-width:520px;line-height:1.8;margin-bottom:1.5rem">
+    Von broke Indie Dev zum Tech CEO. Grind Jobs, kauf Gear, bau dein Empire —
+    in einer Welt voller iFoons, Samsong-Geräte und Damazon Crime-Lieferungen.
+  </p>
+  <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:3rem">
+    <span class="case-tag tag-wip" style="margin:0">In Development</span>
+    <span class="tag-tech" style="padding:0.25rem 0.55rem">Unity 6</span>
+    <span class="tag-tech" style="padding:0.25rem 0.55rem">Mobile</span>
+    <span class="tag-tech" style="padding:0.25rem 0.55rem">Android & iOS</span>
+  </div>
+
+  <div class="section-label">DevLog</div>
+
+  {% set posts = collections.devlog %}
+  {% if posts and posts.length %}
+    <div style="display:flex;flex-direction:column;gap:0.75rem">
+      {% for post in posts | reverse %}
+      <article class="devlog-post">
+        <time>{{ post.date | dateDisplay }}</time>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="font-size:0.85rem;color:var(--text-3)">DevLog-Einträge folgen in Kürze.</p>
+  {% endif %}
+
+</div>

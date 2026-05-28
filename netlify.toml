@@ -6,7 +6,28 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# DevLog-URLs auf /gaming/ umleiten (301, dauerhaft)
+[[redirects]]
+  from   = "/devlog/"
+  to     = "/gaming/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/devlog/*"
+  to     = "/gaming/:splat"
+  status = 301
+  force  = true
+
+# /leistungen/ auf Startseite-Anker
+[[redirects]]
+  from   = "/leistungen/"
+  to     = "/#leistungen"
+  status = 301
+  force  = true
+
+# SPA-Fallback (404-Seite)
 [[redirects]]
   from   = "/*"
-  to     = "/index.html"
+  to     = "/404.html"
   status = 404

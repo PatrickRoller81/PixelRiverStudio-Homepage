@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+
+<div class="page-wrap">
+
+  <a href="/gaming/" class="page-back">← DevLog</a>
+
+  <header style="border-bottom:1px solid var(--border);padding-bottom:2rem;margin-bottom:2.5rem">
+    <time style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-3)">{{ page.date | dateDisplay }}</time>
+    <h1 style="font-size:1.75rem;font-weight:800;letter-spacing:-0.025em;margin:0.5rem 0 0.6rem">{{ title }}</h1>
+    {% if summary %}<p style="font-size:0.88rem;color:var(--text-2);line-height:1.75">{{ summary }}</p>{% endif %}
+    {% if tags %}
+    <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.9rem">
+      {% for tag in tags %}
+        {% if tag !== "devlog" %}
+        <span class="tag-tech" style="padding:0.2rem 0.5rem">{{ tag }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="prose-devlog">
+    {{ content | safe }}
+  </div>
+
+</div>

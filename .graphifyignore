@@ -1,0 +1,46 @@
+# ============================================================
+# .graphifyignore — PixelRiverStudio Homepage
+# Nur selbst erzeugter Quellcode kommt in den Graphen.
+# ============================================================
+
+# System- und Cache-Ordner
+.git/
+.github/
+graphify-out/
+node_modules/
+_site/
+
+# Alle versteckten KI-Agenten-Ordner
+.*
+.*/
+.agent/
+.amazonq/
+.augment/
+.claude/
+.cline/
+.codex/
+.continue/
+.cursor/
+.gemini/
+.opencode/
+.vs/
+.vscode/
+
+# Tool-Konfigurationen (kein Produktiv-Code)
+openspec/
+repomix-output.txt
+repomix.config.json
+
+# Assets (Binär, keine Code-Logik)
+src/assets/img/
+src/assets/fonts/
+
+# Eleventy-Output (generiert, kein Quellcode)
+_site/
+
+# Template-Boilerplate ohne inhaltliche Logik
+src/devlog/posts/devlog-template.md
+
+# Locks & Paket-Binaries
+package-lock.json
+yarn.lock
