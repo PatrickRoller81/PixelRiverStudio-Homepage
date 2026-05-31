@@ -149,8 +149,8 @@ nav {
   margin-bottom: 1.4rem;
 }
 .hero h1 .ghost {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(226,232,240,0.2);
+  color: rgba(59,150,255,0.35);
+  -webkit-text-stroke: 0px transparent;
 }
 .hero h1 .accent {
   color: var(--blue);
