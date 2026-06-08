@@ -61,6 +61,75 @@ description: KI-Content auf Knopfdruck für lokale Unternehmen. SEO-Blogpost und
     Demo — Inhalte als Entwurf. Vor Veröffentlichung bitte prüfen.
   </p>
 
+  <!-- TARIFE -->
+  <style>
+    .lcb-pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    .lcb-pricing .price-card { background: var(--surface); padding: 1.4rem 1.2rem; display: flex; flex-direction: column; }
+    .lcb-pricing .price-card.highlight { background: var(--surface-2); border-top: 2px solid var(--blue); }
+    .lcb-tier-amount { font-family: var(--font-mono); font-size: 1.4rem; color: var(--blue); font-weight: 700; line-height: 1; }
+    .lcb-tier-amount small { font-size: 0.7rem; color: var(--text-3); font-weight: 400; }
+    .lcb-feat-list { list-style: none; padding: 0; margin: 0.9rem 0 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.72rem; color: var(--text-2); line-height: 1.4; }
+    .lcb-feat-list .no { color: var(--text-3); }
+    .lcb-tier-cta { display: block; margin-top: auto; text-align: center; }
+    @media (max-width: 640px) { .lcb-pricing { grid-template-columns: 1fr; } }
+  </style>
+
+  <div class="section-label" style="margin-top:3rem">Tarife</div>
+  <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem">Wähle deinen Tarif</h2>
+  <p style="font-size:0.85rem;color:var(--text-2);line-height:1.7;margin-bottom:1.25rem">
+    Faire Preise, monatlich kündbar. Starte kostenlos mit der Demo oben — Abo-Start folgt.
+  </p>
+
+  <div class="lcb-pricing">
+    <div class="price-card">
+      <div class="price-name">Starter</div>
+      <div class="lcb-tier-amount">19 €<small>/mo</small></div>
+      <span class="price-note">~1× pro Woche</span>
+      <ul class="lcb-feat-list">
+        <li>5 Credits / Monat</li>
+        <li>Facebook + Instagram</li>
+        <li class="no">✗ keine Bildgenerierung</li>
+        <li class="no">0 Retries</li>
+      </ul>
+      <a href="https://lokal-content-bot.netlify.app" class="btn-primary lcb-tier-cta">Demo starten</a>
+    </div>
+    <div class="price-card highlight">
+      <div class="price-name">Business ★</div>
+      <div class="lcb-tier-amount">49 €<small>/mo</small></div>
+      <span class="price-note">~jeden 2. Tag</span>
+      <ul class="lcb-feat-list">
+        <li>15 Credits / Monat</li>
+        <li>4 Kanäle (Facebook, Instagram, Blog, X/LinkedIn)</li>
+        <li>✓ Bildgenerierung <span class="no">(ab Phase 3)</span></li>
+        <li>1 Retry</li>
+      </ul>
+      <a href="https://lokal-content-bot.netlify.app" class="btn-primary lcb-tier-cta">Demo starten</a>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Pro</div>
+      <div class="lcb-tier-amount">99 €<small>/mo</small></div>
+      <span class="price-note">Unbegrenzt</span>
+      <ul class="lcb-feat-list">
+        <li>Unbegrenzte Credits</li>
+        <li>Alle Kanäle (5+)</li>
+        <li>✓ Bildgenerierung <span class="no">(ab Phase 3)</span></li>
+        <li>2 Retries</li>
+      </ul>
+      <a href="https://lokal-content-bot.netlify.app" class="btn-primary lcb-tier-cta">Demo starten</a>
+    </div>
+  </div>
+
+  <p style="font-family:var(--font-mono);font-size:0.58rem;color:var(--text-3);margin-bottom:1rem;text-align:center">
+    Preise inkl. — Kleinunternehmer gem. § 19 UStG, keine Umsatzsteuer. Bildgenerierung ab Phase 3.
+  </p>
+
 </div>
 
 <script>
