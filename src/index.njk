@@ -134,19 +134,79 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
       </p>
       <div style="display:inline-block;margin-top:1rem;padding:0.4rem 1rem;border:1px solid var(--blue);border-radius:4px;font-family:var(--font-mono);font-size:0.7rem;color:var(--blue);letter-spacing:0.08em">[ COMING SOON — für Vereine &amp; Büros ]</div>
     </div>
-    <div class="bot-mockup">
-      <div class="mockup-bar">
-        <span style="background:#ff5f57"></span>
-        <span style="background:#febc2e"></span>
-        <span style="background:#28c840"></span>
-      </div>
-      <div class="mock-input">
-        <span style="color:rgba(59,150,255,0.4)">❯</span>
-        Foto: handschriftliches Sitzungsprotokoll<span class="cursor"></span>
-      </div>
-      <div class="mock-out">
-        <div class="mock-label blog">Word · PDF · Excel</div>
-        <div class="mock-text">TOP 1 Begrüßung · Beschlüsse (3) · Aufgaben mit Verantwortlichen · Nächster Termin …</div>
+    <style>
+      .pa-phone-wrap{display:flex;justify-content:center;align-items:center}
+      .pa-phone{position:relative;width:208px;height:420px;background:#0a0e12;border:2px solid #2d3748;border-radius:28px;padding:10px 9px;box-shadow:0 18px 46px rgba(0,0,0,.45)}
+      .pa-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:66px;height:15px;background:#0a0e12;border-radius:0 0 10px 10px;z-index:5}
+      .pa-screen{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#0e1318}
+      .pa-scene{position:absolute;inset:0;padding:26px 14px 30px;display:flex;flex-direction:column;opacity:0;animation:paCycle 13s infinite}
+      .pa-scene:nth-child(1){animation-delay:0s}.pa-scene:nth-child(2){animation-delay:3.25s}.pa-scene:nth-child(3){animation-delay:6.5s}.pa-scene:nth-child(4){animation-delay:9.75s}
+      @keyframes paCycle{0%{opacity:0;transform:translateY(6px)}3%{opacity:1;transform:translateY(0)}22%{opacity:1;transform:translateY(0)}25%{opacity:0;transform:translateY(-6px)}100%{opacity:0}}
+      .pa-head{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:#3b96ff;margin-bottom:10px}
+      .pa-doc{flex:1;border:1px dashed rgba(148,163,184,.35);border-radius:6px;background:#141a21;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:6px;padding:13px 11px}
+      .pa-hand{height:5px;border-radius:3px;background:rgba(148,163,184,.4)}
+      .pa-hand.s{width:55%}.pa-hand.m{width:80%}.pa-hand.l{width:94%}
+      .pa-frame{position:absolute;inset:9px;border:2px solid #3b96ff;border-radius:4px;box-shadow:0 0 0 3px rgba(59,150,255,.12)}
+      .pa-cap{margin-top:10px;height:30px;border-radius:8px;background:#3b96ff;color:#06121f;font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+      .pa-proc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+      .pa-spin{width:40px;height:40px;border-radius:50%;border:3px solid #2d3748;border-top-color:#3b96ff;animation:paSpin .9s linear infinite}
+      @keyframes paSpin{to{transform:rotate(360deg)}}
+      .pa-pt{font-size:.62rem;color:#94a3b8;line-height:1.5}
+      .pa-res{flex:1;display:flex;flex-direction:column;gap:7px}
+      .pa-chip{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:2px 7px;border-radius:4px;background:rgba(59,150,255,.12);color:#3b96ff}
+      .pa-line{font-size:.56rem;color:#94a3b8;line-height:1.35}
+      .pa-line b{color:#e6edf3}
+      .pa-exp{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px}
+      .pa-eb{height:30px;border-radius:8px;border:1px solid #2d3748;background:#141a21;display:flex;align-items:center;gap:9px;padding:0 12px;font-size:.58rem;color:#94a3b8}
+      .pa-eb .d{width:9px;height:9px;border-radius:2px}
+      .pa-toast{margin-top:4px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:#10d972}
+      .pa-dots{position:absolute;bottom:13px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:4}
+      .pa-dots span{width:5px;height:5px;border-radius:50%;background:rgba(148,163,184,.3);animation:paDot 13s infinite}
+      .pa-dots span:nth-child(1){animation-delay:0s}.pa-dots span:nth-child(2){animation-delay:3.25s}.pa-dots span:nth-child(3){animation-delay:6.5s}.pa-dots span:nth-child(4){animation-delay:9.75s}
+      @keyframes paDot{0%,24%{background:#3b96ff}25%,100%{background:rgba(148,163,184,.3)}}
+      @media (prefers-reduced-motion:reduce){.pa-scene,.pa-dots span,.pa-spin{animation:none}.pa-scene:first-child{opacity:1}}
+    </style>
+    <div class="pa-phone-wrap">
+      <div class="pa-phone">
+        <div class="pa-notch"></div>
+        <div class="pa-screen">
+          <div class="pa-scene">
+            <div class="pa-head">Aufnahme</div>
+            <div class="pa-doc">
+              <div class="pa-hand l"></div><div class="pa-hand m"></div>
+              <div class="pa-hand l"></div><div class="pa-hand s"></div>
+              <div class="pa-hand m"></div><div class="pa-hand l"></div>
+              <div class="pa-frame"></div>
+            </div>
+            <div class="pa-cap">● Protokoll scannen</div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">KI-Analyse</div>
+            <div class="pa-proc">
+              <div class="pa-spin"></div>
+              <div class="pa-pt">Handschrift wird erkannt<br>und strukturiert …</div>
+            </div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">Protokoll</div>
+            <div class="pa-res">
+              <span class="pa-chip">Vorstandssitzung · 19.06.</span>
+              <div class="pa-line"><b>TOP 1 — Begrüßung</b><br>Vollzählig, beschlussfähig.</div>
+              <div class="pa-line"><b>TOP 2 — Beschlüsse</b><br>Budget 2026 einstimmig genehmigt.</div>
+              <div class="pa-line"><b>Aufgaben</b><br>M. Klein: Termin KW 26 festlegen.</div>
+            </div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">Export</div>
+            <div class="pa-exp">
+              <div class="pa-eb"><span class="d" style="background:#2b579a"></span> Word (.docx)</div>
+              <div class="pa-eb"><span class="d" style="background:#d93025"></span> PDF</div>
+              <div class="pa-eb"><span class="d" style="background:#1e7145"></span> Excel (.xlsx)</div>
+              <div class="pa-toast">✓ Exportiert &amp; geteilt</div>
+            </div>
+          </div>
+          <div class="pa-dots"><span></span><span></span><span></span><span></span></div>
+        </div>
       </div>
     </div>
   </div>
