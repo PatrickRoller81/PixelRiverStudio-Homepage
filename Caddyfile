@@ -1,0 +1,31 @@
+# Caddyfile — PixelRiverStudio Homepage
+# Ersetzt netlify.toml. Deploy läuft jetzt über Coolify (Hetzner, Nürnberg).
+# Coolify terminiert TLS am Edge-Proxy → dieser Container-Caddy lauscht auf :80.
+#
+# ANPASSEN je nach Coolify-Static-Ressource:
+#   - root-Pfad: Verzeichnis mit dem Eleventy-Build (_site)
+#   (TLS/Domain werden vom Coolify-Proxy gesetzt, nicht hier.)
+
+:80 {
+	root * /app/_site
+	encode gzip zstd
+
+	# route erzwingt Reihenfolge: Redirect VOR try_files (sonst gewinnt der Datei-Rewrite).
+	route {
+		# /leistungen/ -> Startseiten-Anker (war: netlify 301 force).
+		# Entfernen, falls die eigenständige /leistungen/-Seite erreichbar sein soll.
+		redir /leistungen /#leistungen 301
+		redir /leistungen/ /#leistungen 301
+
+		# Saubere URLs: Eleventy schreibt <pfad>/index.html
+		try_files {path} {path}/ {path}/index.html
+		file_server
+	}
+
+	# Custom-404 (war: netlify /* -> /404.html).
+	# Greift, sobald src/404.njk existiert und _site/404.html gebaut wird.
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}
