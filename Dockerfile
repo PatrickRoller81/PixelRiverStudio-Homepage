@@ -4,10 +4,13 @@
 # --- Stage 1: Build ---
 FROM node:20-alpine AS build
 WORKDIR /app
+# WICHTIG: @11ty/eleventy liegt in devDependencies. Coolify setzt im Build oft
+# NODE_ENV=production -> npm wuerde devDeps ueberspringen. Daher explizit erzwingen.
+ENV NODE_ENV=development
 COPY package*.json ./
-RUN npm install
+RUN npm install --include=dev
 COPY . .
-RUN npm run build   # -> erzeugt /app/_site
+RUN npx @11ty/eleventy   # -> erzeugt /app/_site
 
 # --- Stage 2: Serve ---
 FROM nginx:alpine
