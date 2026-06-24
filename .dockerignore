@@ -1,0 +1,10 @@
+node_modules
+_site
+.git
+.cache
+graphify-out
+repomix-output.txt
+repomix-output.xml
+.vs
+.vscode
+openspec
