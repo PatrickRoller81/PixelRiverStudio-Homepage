@@ -1,19 +1,13 @@
-# Multi-Stage-Build: Eleventy baut die statische Seite, nginx serviert sie.
-# Coolify-Buildpack: dockerfile (Static-Buildpack fuehrt den Build-Command nicht aus).
-
-# --- Stage 1: Build ---
-FROM node:20-alpine AS build
+# Build-Image fuer Coolify (Buildpack: dockerfile + Static-Site).
+# Coolify baut dieses Image und kopiert danach publish_directory (/_site)
+# automatisch in einen eigenen nginx-Container. Daher KEINE nginx-Stage hier.
+#
+# @11ty/eleventy liegt in devDependencies -> Coolify setzt im Build oft
+# NODE_ENV=production, daher explizit devDeps erzwingen.
+FROM node:20-alpine
 WORKDIR /app
-# WICHTIG: @11ty/eleventy liegt in devDependencies. Coolify setzt im Build oft
-# NODE_ENV=production -> npm wuerde devDeps ueberspringen. Daher explizit erzwingen.
 ENV NODE_ENV=development
 COPY package*.json ./
 RUN npm install --include=dev
 COPY . .
-RUN npx @11ty/eleventy   # -> erzeugt /app/_site
-
-# --- Stage 2: Serve ---
-FROM nginx:alpine
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/_site /usr/share/nginx/html
-EXPOSE 80
+RUN npx @11ty/eleventy   # erzeugt /app/_site
