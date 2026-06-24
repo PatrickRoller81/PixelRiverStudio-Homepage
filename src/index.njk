@@ -54,7 +54,7 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
     <div class="usp-item">
       <span class="usp-num">01 — KI-SaaS</span>
       <div class="usp-title">KI-Agenten & Automatisierung</div>
-      <div class="usp-desc">Wiederkehrende Aufgaben erledigt die Maschine. LLM-Integration, Prompt-Engineering, n8n-Workflows — skalierbar und DSGVO-konform in Frankfurt gehostet.</div>
+      <div class="usp-desc">Wiederkehrende Aufgaben erledigt die Maschine. LLM-Integration, Prompt-Engineering, n8n-Workflows — skalierbar und DSGVO-konform, gehostet in der EU (Server Nürnberg, KI-Modelle Frankfurt).</div>
     </div>
     <div class="usp-item">
       <span class="usp-num">02 — App-Dev</span>
@@ -90,8 +90,8 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
     </div>
   </div>
 
-  <!-- CONTENT BOT TEASER -->
-  <div class="section-label">Eigenes Produkt</div>
+  <!-- EIGENE PRODUKTE -->
+  <div class="section-label">Eigene Produkte</div>
   <div class="bot-section">
     <div class="bot-copy">
       <h2>Lokal-Content-Bot</h2>
@@ -102,23 +102,177 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
       </p>
       <div style="display:inline-block;margin-top:1rem;padding:0.4rem 1rem;border:1px solid var(--blue);border-radius:4px;font-family:var(--font-mono);font-size:0.7rem;color:var(--blue);letter-spacing:0.08em">[ COMING SOON — Early Access auf Anfrage ]</div>
     </div>
-    <div class="bot-mockup">
-      <div class="mockup-bar">
-        <span style="background:#ff5f57"></span>
-        <span style="background:#febc2e"></span>
-        <span style="background:#28c840"></span>
+    <style>
+      .lcbm-wrap{display:flex;justify-content:center;align-items:center}
+      .lcbm{position:relative;width:100%;max-width:340px;height:300px;background:#0a0e12;border:1px solid #2d3748;border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.45)}
+      .lcbm-bar{height:34px;background:#141a21;border-bottom:1px solid #1f2937;display:flex;align-items:center;gap:6px;padding:0 12px}
+      .lcbm-bar i{width:10px;height:10px;border-radius:50%;display:block}
+      .lcbm-url{margin-left:6px;flex:1;height:19px;border-radius:10px;background:#0e1318;border:1px solid #1f2937;display:flex;align-items:center;padding:0 10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8}
+      .lcbm-view{position:relative;height:266px}
+      .lcbm-scene{position:absolute;inset:0;padding:18px 20px;display:flex;flex-direction:column;opacity:0;animation:lcbmCycle 15s infinite}
+      .lcbm-scene:nth-child(1){animation-delay:0s}.lcbm-scene:nth-child(2){animation-delay:3s}.lcbm-scene:nth-child(3){animation-delay:6s}.lcbm-scene:nth-child(4){animation-delay:9s}.lcbm-scene:nth-child(5){animation-delay:12s}
+      @keyframes lcbmCycle{0%{opacity:0;transform:translateY(6px)}2%{opacity:1;transform:translateY(0)}18%{opacity:1;transform:translateY(0)}20%{opacity:0;transform:translateY(-6px)}100%{opacity:0}}
+      .lcbm-h{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#3b96ff;margin-bottom:13px}
+      .lcbm-field{height:30px;border-radius:7px;background:#141a21;border:1px solid #2d3748;display:flex;align-items:center;padding:0 11px;font-size:11px;color:#94a3b8;margin-bottom:9px}
+      .lcbm-btn{height:32px;border-radius:7px;background:#3b96ff;color:#06121f;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:4px}
+      .lcbm-lbl{font-size:11px;color:#94a3b8;margin:2px 0 7px}
+      .lcbm-chips{display:flex;flex-wrap:wrap;gap:6px}
+      .lcbm-chip{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(59,150,255,.12);color:#3b96ff}
+      .lcbm-mic-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px}
+      .lcbm-mic{width:52px;height:52px;border-radius:50%;background:#3b96ff;display:flex;align-items:center;justify-content:center;animation:lcbmPulse 1.6s ease-out infinite}
+      .lcbm-mic::before{content:'';width:15px;height:23px;border-radius:8px;background:#06121f}
+      @keyframes lcbmPulse{0%{box-shadow:0 0 0 0 rgba(59,150,255,.45)}100%{box-shadow:0 0 0 17px rgba(59,150,255,0)}}
+      .lcbm-wave{display:flex;align-items:center;gap:3px;height:20px}
+      .lcbm-wave span{width:3px;height:8px;border-radius:2px;background:#3b96ff;animation:lcbmWave 1s ease-in-out infinite}
+      .lcbm-wave span:nth-child(2){animation-delay:.15s}.lcbm-wave span:nth-child(3){animation-delay:.3s}.lcbm-wave span:nth-child(4){animation-delay:.45s}.lcbm-wave span:nth-child(5){animation-delay:.6s}
+      @keyframes lcbmWave{0%,100%{height:7px}50%{height:20px}}
+      .lcbm-said{font-size:11px;color:#94a3b8;text-align:center;line-height:1.5}
+      .lcbm-hook{font-size:11px;color:#e6edf3;line-height:1.4;padding:8px 10px;border-left:2px solid #3b96ff;background:#141a21;margin-bottom:7px}
+      .lcbm-pub{display:flex;flex-direction:column;gap:7px}
+      .lcbm-ch{height:30px;border-radius:7px;border:1px solid #2d3748;background:#141a21;display:flex;align-items:center;gap:9px;padding:0 12px;font-size:11px;color:#94a3b8}
+      .lcbm-ch .d{width:9px;height:9px;border-radius:3px}
+      .lcbm-toast{margin-top:4px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#10d972}
+      .lcbm-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:4}
+      .lcbm-dots span{width:5px;height:5px;border-radius:50%;background:rgba(148,163,184,.3);animation:lcbmDot 15s infinite}
+      .lcbm-dots span:nth-child(1){animation-delay:0s}.lcbm-dots span:nth-child(2){animation-delay:3s}.lcbm-dots span:nth-child(3){animation-delay:6s}.lcbm-dots span:nth-child(4){animation-delay:9s}.lcbm-dots span:nth-child(5){animation-delay:12s}
+      @keyframes lcbmDot{0%,18%{background:#3b96ff}20%,100%{background:rgba(148,163,184,.3)}}
+      @media (prefers-reduced-motion:reduce){.lcbm-scene,.lcbm-dots span,.lcbm-mic,.lcbm-wave span{animation:none}.lcbm-scene:first-child{opacity:1}}
+    </style>
+    <div class="lcbm-wrap">
+      <div class="lcbm">
+        <div class="lcbm-bar">
+          <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+          <span class="lcbm-url">lcb.pixelriverstudio.de</span>
+        </div>
+        <div class="lcbm-view">
+          <div class="lcbm-scene">
+            <div class="lcbm-h">Anmelden</div>
+            <div class="lcbm-field">salon@beispiel.de</div>
+            <div class="lcbm-field">••••••••</div>
+            <div class="lcbm-btn">Einloggen</div>
+          </div>
+          <div class="lcbm-scene">
+            <div class="lcbm-h">Firmenprofil</div>
+            <div class="lcbm-field">Friseursalon Schnittwerk · Horb</div>
+            <div class="lcbm-lbl">Keywords</div>
+            <div class="lcbm-chips">
+              <span class="lcbm-chip">Frühjahrs-Looks</span><span class="lcbm-chip">Balayage</span>
+              <span class="lcbm-chip">Online-Termine</span><span class="lcbm-chip">Beratung</span>
+            </div>
+          </div>
+          <div class="lcbm-scene">
+            <div class="lcbm-h">Einsprechen</div>
+            <div class="lcbm-mic-wrap">
+              <div class="lcbm-mic"></div>
+              <div class="lcbm-wave"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="lcbm-said">„Aktion für Frühjahrs-Balayage<br>diese Woche …“</div>
+            </div>
+          </div>
+          <div class="lcbm-scene">
+            <div class="lcbm-h">Social-Media-Hooks</div>
+            <div class="lcbm-hook">Frühling im Haar: Balayage-Aktion — nur diese Woche.</div>
+            <div class="lcbm-hook">Neuer Look, neue Energie — sichere dir deinen Termin.</div>
+            <div class="lcbm-hook">3 Gründe, warum Balayage jetzt perfekt ist ↓</div>
+          </div>
+          <div class="lcbm-scene">
+            <div class="lcbm-h">Veröffentlichen</div>
+            <div class="lcbm-pub">
+              <div class="lcbm-ch"><span class="d" style="background:#e1306c"></span> Instagram</div>
+              <div class="lcbm-ch"><span class="d" style="background:#1877f2"></span> Facebook</div>
+              <div class="lcbm-ch"><span class="d" style="background:#3b96ff"></span> Blog</div>
+              <div class="lcbm-toast">✓ Auf 3 Kanälen veröffentlicht</div>
+            </div>
+          </div>
+          <div class="lcbm-dots"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
       </div>
-      <div class="mock-input">
-        <span style="color:rgba(59,150,255,0.4)">❯</span>
-        Neuer Haarschnitt-Trend Frühjahr<span class="cursor"></span>
-      </div>
-      <div class="mock-out">
-        <div class="mock-label blog">Blogpost</div>
-        <div class="mock-text">Frische Frühjahrs-Cuts: Die 5 Trends, die Ihr Salon jetzt anbieten sollte…</div>
-      </div>
-      <div class="mock-out">
-        <div class="mock-label insta">Instagram</div>
-        <div class="mock-text">🌸 Frühling, neue Styles! Lass dich inspirieren — jetzt Termin sichern. #Friseur #Frühjahr #Hairstyle</div>
+    </div>
+  </div>
+
+  <!-- PROTOKOLL-ASSISTENT TEASER -->
+  <div class="bot-section" style="margin-top:2rem">
+    <div class="bot-copy">
+      <h2>Protokoll-Assistent</h2>
+      <p style="font-size:0.85rem;color:var(--text-2);line-height:1.75;margin:0.75rem 0 0.25rem">
+        Sitzungsprotokoll abfotografieren — die KI liest die Handschrift,
+        strukturiert sie und liefert fertige Word-, PDF- oder Excel-Dateien.
+        Schluss mit dem Abtippen.
+      </p>
+      <div style="display:inline-block;margin-top:1rem;padding:0.4rem 1rem;border:1px solid var(--blue);border-radius:4px;font-family:var(--font-mono);font-size:0.7rem;color:var(--blue);letter-spacing:0.08em">[ COMING SOON — für Vereine &amp; Büros ]</div>
+    </div>
+    <style>
+      .pa-phone-wrap{display:flex;justify-content:center;align-items:center}
+      .pa-phone{position:relative;width:208px;height:420px;background:#0a0e12;border:2px solid #2d3748;border-radius:28px;padding:10px 9px;box-shadow:0 18px 46px rgba(0,0,0,.45)}
+      .pa-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:66px;height:15px;background:#0a0e12;border-radius:0 0 10px 10px;z-index:5}
+      .pa-screen{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#0e1318}
+      .pa-scene{position:absolute;inset:0;padding:26px 14px 30px;display:flex;flex-direction:column;opacity:0;animation:paCycle 13s infinite}
+      .pa-scene:nth-child(1){animation-delay:0s}.pa-scene:nth-child(2){animation-delay:3.25s}.pa-scene:nth-child(3){animation-delay:6.5s}.pa-scene:nth-child(4){animation-delay:9.75s}
+      @keyframes paCycle{0%{opacity:0;transform:translateY(6px)}3%{opacity:1;transform:translateY(0)}22%{opacity:1;transform:translateY(0)}25%{opacity:0;transform:translateY(-6px)}100%{opacity:0}}
+      .pa-head{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:#3b96ff;margin-bottom:10px}
+      .pa-doc{flex:1;border:1px dashed rgba(148,163,184,.35);border-radius:6px;background:#141a21;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:6px;padding:13px 11px}
+      .pa-hand{height:5px;border-radius:3px;background:rgba(148,163,184,.4)}
+      .pa-hand.s{width:55%}.pa-hand.m{width:80%}.pa-hand.l{width:94%}
+      .pa-frame{position:absolute;inset:9px;border:2px solid #3b96ff;border-radius:4px;box-shadow:0 0 0 3px rgba(59,150,255,.12)}
+      .pa-cap{margin-top:10px;height:30px;border-radius:8px;background:#3b96ff;color:#06121f;font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+      .pa-proc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+      .pa-spin{width:40px;height:40px;border-radius:50%;border:3px solid #2d3748;border-top-color:#3b96ff;animation:paSpin .9s linear infinite}
+      @keyframes paSpin{to{transform:rotate(360deg)}}
+      .pa-pt{font-size:.62rem;color:#94a3b8;line-height:1.5}
+      .pa-res{flex:1;display:flex;flex-direction:column;gap:7px}
+      .pa-chip{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:2px 7px;border-radius:4px;background:rgba(59,150,255,.12);color:#3b96ff}
+      .pa-line{font-size:.56rem;color:#94a3b8;line-height:1.35}
+      .pa-line b{color:#e6edf3}
+      .pa-exp{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px}
+      .pa-eb{height:30px;border-radius:8px;border:1px solid #2d3748;background:#141a21;display:flex;align-items:center;gap:9px;padding:0 12px;font-size:.58rem;color:#94a3b8}
+      .pa-eb .d{width:9px;height:9px;border-radius:2px}
+      .pa-toast{margin-top:4px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:#10d972}
+      .pa-dots{position:absolute;bottom:13px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:4}
+      .pa-dots span{width:5px;height:5px;border-radius:50%;background:rgba(148,163,184,.3);animation:paDot 13s infinite}
+      .pa-dots span:nth-child(1){animation-delay:0s}.pa-dots span:nth-child(2){animation-delay:3.25s}.pa-dots span:nth-child(3){animation-delay:6.5s}.pa-dots span:nth-child(4){animation-delay:9.75s}
+      @keyframes paDot{0%,24%{background:#3b96ff}25%,100%{background:rgba(148,163,184,.3)}}
+      @media (prefers-reduced-motion:reduce){.pa-scene,.pa-dots span,.pa-spin{animation:none}.pa-scene:first-child{opacity:1}}
+    </style>
+    <div class="pa-phone-wrap">
+      <div class="pa-phone">
+        <div class="pa-notch"></div>
+        <div class="pa-screen">
+          <div class="pa-scene">
+            <div class="pa-head">Aufnahme</div>
+            <div class="pa-doc">
+              <div class="pa-hand l"></div><div class="pa-hand m"></div>
+              <div class="pa-hand l"></div><div class="pa-hand s"></div>
+              <div class="pa-hand m"></div><div class="pa-hand l"></div>
+              <div class="pa-frame"></div>
+            </div>
+            <div class="pa-cap">● Protokoll scannen</div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">KI-Analyse</div>
+            <div class="pa-proc">
+              <div class="pa-spin"></div>
+              <div class="pa-pt">Handschrift wird erkannt<br>und strukturiert …</div>
+            </div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">Protokoll</div>
+            <div class="pa-res">
+              <span class="pa-chip">Vorstandssitzung · 19.06.</span>
+              <div class="pa-line"><b>TOP 1 — Begrüßung</b><br>Vollzählig, beschlussfähig.</div>
+              <div class="pa-line"><b>TOP 2 — Beschlüsse</b><br>Budget 2026 einstimmig genehmigt.</div>
+              <div class="pa-line"><b>Aufgaben</b><br>M. Klein: Termin KW 26 festlegen.</div>
+            </div>
+          </div>
+          <div class="pa-scene">
+            <div class="pa-head">Export</div>
+            <div class="pa-exp">
+              <div class="pa-eb"><span class="d" style="background:#2b579a"></span> Word (.docx)</div>
+              <div class="pa-eb"><span class="d" style="background:#d93025"></span> PDF</div>
+              <div class="pa-eb"><span class="d" style="background:#1e7145"></span> Excel (.xlsx)</div>
+              <div class="pa-toast">✓ Exportiert &amp; geteilt</div>
+            </div>
+          </div>
+          <div class="pa-dots"><span></span><span></span><span></span><span></span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -144,7 +298,7 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
       <div class="usp-desc">Die sauberen Daten fließen direkt in Ihr bestehendes System — Excel, CRM, App oder E-Mail. Kein Copy-Paste, kein Medienbruch.</div>
     </div>
   </div>
-  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:3rem">100% DSGVO-konform · Infrastruktur in Frankfurt (EU) · Zero-Retention API-Anbindungen</p>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:3rem">100% DSGVO-konform · Server Nürnberg · KI-Modelle Frankfurt (EU) · Zero-Retention API-Anbindungen</p>
 
   <!-- CASE STUDIES -->
   <div class="section-label">Referenzen</div>
