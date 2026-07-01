@@ -1,17 +1,17 @@
 <!-- OPENSPEC:START -->
-# OpenSpec Instructions — PixelRiverStudio Homepage
+# OpenSpec Instructions — PixelRiverStudio
 
 Dieses Repo nutzt **OpenSpec** für Spec-Driven Development (SDD).
-AI-Agents: Coder Agent (Claude)
+AI-Agents: Claude COO · Antigravity · Cursor
 
 ## Wann OpenSpec nutzen?
 
 Diese Datei öffnen wenn:
-- Neue Sektionen oder Seiten geplant werden
-- Design-Tokens oder Layout-Struktur sich ändern
-- Neue API-Anbindungen (Webhooks, n8n) diskutiert werden
+- Planning, Proposals oder neue Capabilities diskutiert werden
+- Neue Workflows, Änderungen an der Pipeline oder BIZ-Prozesse geplant sind
+- Ambiguität besteht und ein Spec-Dokument vor dem Coden Klarheit schafft
 
-## Slash Commands (in Claude / Cursor)
+## Slash Commands (in Claude / Antigravity / Cursor)
 
 ```
 /opsx:propose <name>   → Proposal + Specs + Design + Tasks erzeugen
@@ -24,28 +24,21 @@ Diese Datei öffnen wenn:
 
 ```bash
 npm install -g @fission-ai/openspec@latest
-# Im Repo-Verzeichnis:
-openspec init --tools claude,cursor --profile core
+# Im jeweiligen Repo-Verzeichnis:
+openspec init --tools claude,cursor,antigravity --profile core
 ```
 
-## Scope dieses Repos
+## Scope je Repo
 
-| Bereich | Zuständigkeit |
-|---|---|
-| `/` (index) | B2B Studio-Landingpage |
-| `/lokal-content-bot/` | SaaS Demo-Tool (n8n-Webhook) |
-| `/gaming/` | Dev-Log + Spielinfos |
-| `/impressum/` | Rechtliches (DSGVO) |
-
-## Aktive Specs
-
-| Change-ID | Datei | Status |
-|---|---|---|
-| `homepage-b2b-redesign` | `specs/homepage-b2b-redesign.md` | approved |
+| Repo                        | OpenSpec-Scope                                  |
+|-----------------------------|-------------------------------------------------|
+| PixelRiverStudio-Management | BIZ, Issues, Client-Onboarding, SKILLs          |
+| RiverTycoon                 | Game-Features, EPIC-Planning, Unity-Architektur |
+| PixelRiverStudio-Homepage   | Web-Content, Blog-Snippets, CD-Updates          |
 
 ## Konventionen
 
-- Change-IDs: kebab-case, verb-led → `add-contact-form`, `update-hero-copy`
+- Change-IDs: kebab-case, verb-led → `add-graphiti`, `update-nzh-scope`
 - Specs leben im Repo (`openspec/specs/`) — nicht nur im Chat
 - Keine Code-Implementation ohne abgenommenen Spec
 <!-- OPENSPEC:END -->

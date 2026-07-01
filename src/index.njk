@@ -1,27 +1,65 @@
 ---
 layout: base.njk
 title: KI-Apps & Mobile Development
-description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps und Automatisierungen. Patrick Roller, Horb am Neckar.
+description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps und Automatisierungen. Patrick Roller, Nagold-Hochdorf.
 ---
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-tag">
-    <span class="dot-pulse"></span>
-    Verfügbar für neue Projekte
+<section class="hero hero-split">
+  <div class="hero-copy">
+    <div class="hero-tag">
+      <span class="dot-pulse"></span>
+      Verfügbar für neue Projekte
+    </div>
+    <h1>
+      Intelligente Software,<br>
+      <span class="ghost">die Ihr Business</span><br>
+      <span class="accent">wachsen lässt.</span>
+    </h1>
+    <p class="hero-sub">
+      KI-Agenten, Mobile Apps und Automatisierung — individuell entwickelt.
+      Von Nagold-Hochdorf, für den ganzen deutschsprachigen Raum.
+    </p>
+    <p class="hero-thesis">
+      Wir nehmen Ihnen die wiederkehrende Routine ab — <strong>nicht besser als Sie,
+      aber schneller und immer gleich.</strong> Die gewonnene Zeit gehört wieder Ihnen.
+    </p>
+    <div class="hero-btns">
+      <a href="mailto:info@pixelriverstudio.de" class="btn-primary">Projekt anfragen</a>
+      <a href="#leistungen" class="btn-outline">Leistungen ansehen →</a>
+    </div>
   </div>
-  <h1>
-    Intelligente Software,<br>
-    <span class="ghost">die Ihr Business</span><br>
-    <span class="accent">wachsen lässt.</span>
-  </h1>
-  <p class="hero-sub">
-    KI-Agenten, Mobile Apps und Automatisierung — individuell entwickelt.
-    Von Horb am Neckar, für den ganzen deutschsprachigen Raum.
-  </p>
-  <div class="hero-btns">
-    <a href="mailto:info@pixelriverstudio.de" class="btn-primary">Projekt anfragen</a>
-    <a href="#leistungen" class="btn-outline">Leistungen ansehen →</a>
+
+  <!-- KEY-VISUAL: Vorher / Nachher — gleiche Aufgabe, gewonnene Zeit -->
+  <div class="hero-visual" aria-hidden="true">
+    <span class="hv-glow"></span>
+    <div class="hv-compare">
+      <div class="hv-lane hv-lane--now">
+        <span class="hv-lane-tag">Heute · von Hand</span>
+        <div class="hv-steps">
+          <span class="hv-step">Notiz abtippen</span>
+          <span class="hv-step">PDF kopieren</span>
+          <span class="hv-step">in Excel pflegen</span>
+          <span class="hv-step">jede Woche neu</span>
+        </div>
+        <div class="hv-metric hv-metric--slow">~3 Std / Woche · fehleranfällig</div>
+      </div>
+      <div class="hv-vs">↓</div>
+      <div class="hv-lane hv-lane--auto">
+        <span class="hv-lane-tag hv-lane-tag--accent">Mit Automatisierung</span>
+        <div class="hv-flow-mini">
+          <span class="hv-pill">Auslöser</span>
+          <span class="hv-arrow">→</span>
+          <span class="hv-pill">KI strukturiert</span>
+          <span class="hv-arrow">→</span>
+          <span class="hv-pill">ins System</span>
+        </div>
+        <div class="hv-metric hv-metric--fast">~12 Min / Woche · immer gleich</div>
+      </div>
+      <div class="hv-payoff">
+        <span class="hv-payoff-plus">+ 2,5 Std/Woche zurück</span> — für Mitglieder, Kunden, eigene Ideen
+      </div>
+    </div>
   </div>
 </section>
 
@@ -35,7 +73,7 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
     <span class="tick-item"><b>▸</b>Supabase</span>
     <span class="tick-item"><b>▸</b>SaaS Produkte</span>
     <span class="tick-item"><b>▸</b>DSGVO-konform</span>
-    <span class="tick-item"><b>▸</b>Horb am Neckar</span>
+    <span class="tick-item"><b>▸</b>Nagold-Hochdorf</span>
     <span class="tick-item"><b>▸</b>KI-Agenten</span>
     <span class="tick-item"><b>▸</b>Flutter Mobile Apps</span>
     <span class="tick-item"><b>▸</b>Laravel Backend</span>
@@ -43,25 +81,29 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
     <span class="tick-item"><b>▸</b>Supabase</span>
     <span class="tick-item"><b>▸</b>SaaS Produkte</span>
     <span class="tick-item"><b>▸</b>DSGVO-konform</span>
-    <span class="tick-item"><b>▸</b>Horb am Neckar</span>
+    <span class="tick-item"><b>▸</b>Nagold-Hochdorf</span>
   </div>
 </div>
 
 <!-- USPs -->
 <section class="section">
+  <div class="section-label">Pixel River Studio</div>
+  <h2 class="section-lead">Software, die Ihnen Arbeit abnimmt.</h2>
+  <p class="section-sub">KI-Automatisierung, Mobile- &amp; Web-Apps und ein eigenes Game als Tech-Beweis — alles aus einer Hand, direkt mit dem Menschen, der es baut.</p>
+
   <div class="section-label">Was wir bauen</div>
   <div class="usp-grid">
-    <div class="usp-item">
+    <div class="usp-item" data-wm="01" style="--accent:var(--blue)">
       <span class="usp-num">01 — KI-SaaS</span>
       <div class="usp-title">KI-Agenten & Automatisierung</div>
       <div class="usp-desc">Wiederkehrende Aufgaben erledigt die Maschine. LLM-Integration, Prompt-Engineering, n8n-Workflows — skalierbar und DSGVO-konform, gehostet in der EU (Server Nürnberg, KI-Modelle Frankfurt).</div>
     </div>
-    <div class="usp-item">
+    <div class="usp-item" data-wm="02" style="--accent:var(--cyan)">
       <span class="usp-num">02 — App-Dev</span>
       <div class="usp-title">Mobile Apps & Web-Apps</div>
-      <div class="usp-desc">Flutter für iOS und Android mit Laravel-Backend. Von der Vereins-App bis zum B2B-Werkzeug — nativ, schnell, wartbar. Mit Festpreis und Wartungsvertrag.</div>
+      <div class="usp-desc">Flutter für iOS und Android mit Laravel-Backend. Von der Vereins-App bis zum B2B-Werkzeug — nativ, schnell, wartbar. Auf Wunsch mit KI direkt in der App: Chat-Assistent, Texterkennung, smarte Automatisierung. Festpreis + Wartungsvertrag.</div>
     </div>
-    <div class="usp-item">
+    <div class="usp-item" data-wm="03" style="--accent:var(--purple)">
       <span class="usp-num">03 — Gaming</span>
       <div class="usp-title">Tech-Leuchtturm</div>
       <div class="usp-desc">Wer ein performantes Mobile Game mit Physics, State-Management und AI-Assets baut, beherrscht auch Ihre Web-App. Das ist kein Zufall — das ist der Plan.</div>
@@ -72,33 +114,67 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
   <div class="section-label">Wo wir helfen</div>
   <h2>Kleine Probleme, die täglich Zeit und Geld kosten.</h2>
   <p class="section-sub">Die meisten Unternehmen und Vereine kennen das: Nicht die großen Baustellen bremsen — sondern die kleinen, nervigen Alltagsaufgaben, die sich wiederholen.</p>
-  <div class="usp-grid" style="margin-bottom:3rem">
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">01 — Marketing</span>
+  <div class="usp-grid usp-grid--4" style="margin-bottom:3rem">
+    <div class="usp-item" data-wm="01" style="--accent:var(--orange)">
+      <span class="usp-num">01 — Marketing</span>
       <div class="usp-title">Keine Zeit für Social Media</div>
       <div class="usp-desc">Kanäle bleiben leer, weil das Tagesgeschäft vorgeht. Dabei entscheidet die digitale Sichtbarkeit, ob Neukunden überhaupt anklopfen.</div>
+      <div class="usp-gain">↑ Sichtbar bleiben, ohne täglich daran denken zu müssen</div>
     </div>
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">02 — Daten</span>
+    <div class="usp-item" data-wm="02" style="--accent:var(--green)">
+      <span class="usp-num">02 — Daten</span>
       <div class="usp-title">Manuelle Datenübertragung</div>
       <div class="usp-desc">Rechnungen abtippen, PDFs in Excel übertragen, Mitgliederanfragen manuell pflegen — fehleranfällig, zeitraubend und längst automatisierbar.</div>
+      <div class="usp-gain">↑ Stunden im Monat zurück — für die eigentliche Arbeit</div>
     </div>
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">03 — Support</span>
+    <div class="usp-item" data-wm="03" style="--accent:var(--cyan)">
+      <span class="usp-num">03 — Support</span>
       <div class="usp-title">Immer dieselben Fragen</div>
       <div class="usp-desc">Öffnungszeiten, Termine, Mitgliedsbeiträge — Anfragen, die täglich reinkommen und jedes Mal dieselbe Antwort brauchen.</div>
+      <div class="usp-gain">↑ Kopf frei für die Fälle, die wirklich Sie brauchen</div>
+    </div>
+    <div class="usp-item" data-wm="04" style="--accent:var(--purple)">
+      <span class="usp-num">04 — Organisation</span>
+      <div class="usp-title">Den Überblick behalten</div>
+      <div class="usp-desc">Protokolle, Aufgaben, Fristen, Zuständigkeiten — verteilt über Mail, Zettel und Köpfe. Was dazwischen untergeht, kostet hinterher am meisten.</div>
+      <div class="usp-gain">↑ Automatisch erfasst, strukturiert und zusammengefasst</div>
     </div>
   </div>
+
+  <!-- WAS KI NICHT ERSETZT (Angst offen ansprechen) -->
+  <div class="section-label">Ehrlich gesagt</div>
+  <h2>Was KI nicht ersetzt</h2>
+  <p class="section-sub">Die häufigste Sorge: „Macht die KI meinen Job bald besser als ich?" Kurze Antwort: nein. Studien zeigen: rund ein Drittel der Arbeitszeit fließt in wiederkehrende Verwaltung — über 600 Stunden im Jahr.¹ Genau diese Routine nimmt die KI ab. Was Ihr Geschäft ausmacht — Beziehung, Urteil, Handschrift — bleibt bei Ihnen. Dafür gewinnen Sie die Zeit.</p>
+  <div class="usp-grid" style="margin-bottom:1rem">
+    <div class="usp-item" data-wm="01" style="--accent:var(--blue)">
+      <span class="usp-num">01 — Beziehung</span>
+      <div class="usp-title">Der Kontakt zu Menschen</div>
+      <div class="usp-desc">Das Gespräch mit Mitgliedern und Kunden. Vertrauen entsteht zwischen Menschen — nicht im Sprachmodell.</div>
+    </div>
+    <div class="usp-item" data-wm="02" style="--accent:var(--cyan)">
+      <span class="usp-num">02 — Urteil</span>
+      <div class="usp-title">Die Entscheidung</div>
+      <div class="usp-desc">Was richtig ist, entscheiden Sie. Die KI macht den Vorschlag — die Verantwortung bleibt bei Ihnen.</div>
+    </div>
+    <div class="usp-item" data-wm="03" style="--accent:var(--purple)">
+      <span class="usp-num">03 — Handschrift</span>
+      <div class="usp-title">Ihr unverwechselbarer Stil</div>
+      <div class="usp-desc">Das, was Ihr Angebot einzigartig macht. KI variiert Bekanntes — das Neue kommt von Ihnen.</div>
+    </div>
+  </div>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:0.5rem">Werkzeug, nicht Ersatz — Sie bleiben am Steuer.</p>
+  <p style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-3);line-height:1.6;margin-bottom:3rem">¹ Quellen: Asana <em>Anatomy of Work</em> (~60 % „Arbeit über Arbeit") · HR Magazine (~636 Std/Jahr Verwaltung) · McKinsey (60–70 % der Tätigkeiten technisch automatisierbar).</p>
 
   <!-- EIGENE PRODUKTE -->
   <div class="section-label">Eigene Produkte</div>
   <div class="bot-section">
-    <div class="bot-copy">
+    <div class="bot-copy" data-reveal>
       <h2>Lokal-Content-Bot</h2>
       <p style="font-size:0.85rem;color:var(--text-2);line-height:1.75;margin:0.75rem 0 0.25rem">
         Thema eingeben, Inhalt erhalten. Der KI-Agent schreibt in Sekunden
         einen SEO-Blogpost und eine Instagram Caption — ohne Agentur,
-        ohne Abo bei einem US-Anbieter.
+        ohne Abo bei einem US-Anbieter. Aus einer Stunde am Schreibtisch
+        werden zwei Minuten. Den Feinschliff machen Sie.
       </p>
       <div style="display:inline-block;margin-top:1rem;padding:0.4rem 1rem;border:1px solid var(--blue);border-radius:4px;font-family:var(--font-mono);font-size:0.7rem;color:var(--blue);letter-spacing:0.08em">[ COMING SOON — Early Access auf Anfrage ]</div>
     </div>
@@ -138,8 +214,10 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
       @keyframes lcbmDot{0%,18%{background:#3b96ff}20%,100%{background:rgba(148,163,184,.3)}}
       @media (prefers-reduced-motion:reduce){.lcbm-scene,.lcbm-dots span,.lcbm-mic,.lcbm-wave span{animation:none}.lcbm-scene:first-child{opacity:1}}
     </style>
-    <div class="lcbm-wrap">
-      <div class="lcbm">
+    <div class="lcbm-wrap device-stage" data-reveal>
+      <span class="stage-glow"></span>
+      <div class="lcbm device-float">
+        <span class="device-sheen"></span>
         <div class="lcbm-bar">
           <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
           <span class="lcbm-url">lcb.pixelriverstudio.de</span>
@@ -147,13 +225,13 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
         <div class="lcbm-view">
           <div class="lcbm-scene">
             <div class="lcbm-h">Anmelden</div>
-            <div class="lcbm-field">salon@beispiel.de</div>
+            <div class="lcbm-field">salon@beispiel.de<span class="cursor"></span></div>
             <div class="lcbm-field">••••••••</div>
             <div class="lcbm-btn">Einloggen</div>
           </div>
           <div class="lcbm-scene">
             <div class="lcbm-h">Firmenprofil</div>
-            <div class="lcbm-field">Friseursalon Schnittwerk · Horb</div>
+            <div class="lcbm-field">Friseursalon Schnittwerk · Nagold</div>
             <div class="lcbm-lbl">Keywords</div>
             <div class="lcbm-chips">
               <span class="lcbm-chip">Frühjahrs-Looks</span><span class="lcbm-chip">Balayage</span>
@@ -191,18 +269,19 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
 
   <!-- PROTOKOLL-ASSISTENT TEASER -->
   <div class="bot-section" style="margin-top:2rem">
-    <div class="bot-copy">
+    <div class="bot-copy" data-reveal>
       <h2>Protokoll-Assistent</h2>
       <p style="font-size:0.85rem;color:var(--text-2);line-height:1.75;margin:0.75rem 0 0.25rem">
         Sitzungsprotokoll abfotografieren — die KI liest die Handschrift,
         strukturiert sie und liefert fertige Word-, PDF- oder Excel-Dateien.
-        Schluss mit dem Abtippen.
+        Eine Stunde Abtippen wird zur Sache von Minuten — die Zeit bleibt
+        fürs Vereinsleben.
       </p>
       <div style="display:inline-block;margin-top:1rem;padding:0.4rem 1rem;border:1px solid var(--blue);border-radius:4px;font-family:var(--font-mono);font-size:0.7rem;color:var(--blue);letter-spacing:0.08em">[ COMING SOON — für Vereine &amp; Büros ]</div>
     </div>
     <style>
       .pa-phone-wrap{display:flex;justify-content:center;align-items:center}
-      .pa-phone{position:relative;width:208px;height:420px;background:#0a0e12;border:2px solid #2d3748;border-radius:28px;padding:10px 9px;box-shadow:0 18px 46px rgba(0,0,0,.45)}
+      .pa-phone{position:relative;width:208px;height:420px;background:#0a0e12;border:2px solid #2d3748;border-radius:28px;padding:10px 9px;box-shadow:0 18px 46px rgba(0,0,0,.45);overflow:hidden}
       .pa-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:66px;height:15px;background:#0a0e12;border-radius:0 0 10px 10px;z-index:5}
       .pa-screen{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#0e1318}
       .pa-scene{position:absolute;inset:0;padding:26px 14px 30px;display:flex;flex-direction:column;opacity:0;animation:paCycle 13s infinite}
@@ -232,8 +311,10 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
       @keyframes paDot{0%,24%{background:#3b96ff}25%,100%{background:rgba(148,163,184,.3)}}
       @media (prefers-reduced-motion:reduce){.pa-scene,.pa-dots span,.pa-spin{animation:none}.pa-scene:first-child{opacity:1}}
     </style>
-    <div class="pa-phone-wrap">
-      <div class="pa-phone">
+    <div class="pa-phone-wrap device-stage" data-reveal>
+      <span class="stage-glow"></span>
+      <div class="pa-phone device-float">
+        <span class="device-sheen"></span>
         <div class="pa-notch"></div>
         <div class="pa-screen">
           <div class="pa-scene">
@@ -280,70 +361,31 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
   <!-- SO ARBEITEN WIR -->
   <div class="section-label">So arbeiten wir</div>
   <h2>Kein Vibe-Coding. Kein Blindflug.</h2>
-  <p class="section-sub">Wir setzen KI nicht einfach ein — wir orchestrieren sie. Das bedeutet: erst verstehen, dann bauen, dann automatisieren. So entstehen Systeme, die stabil laufen und keine laufenden Überraschungen produzieren.</p>
+  <p class="section-sub">Wir setzen KI nicht einfach ein — wir orchestrieren sie. Das bedeutet: erst verstehen, dann bauen, dann automatisieren. So entstehen Systeme, die stabil laufen und keine laufenden Überraschungen produzieren. Und Sie behalten die Kontrolle: Die KI liefert den Entwurf, die Entscheidung bleibt beim Menschen.</p>
   <div class="usp-grid" style="margin-bottom:0.5rem">
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">01 — Auslöser</span>
+    <div class="usp-item" data-wm="01" style="--accent:var(--blue)">
+      <span class="usp-num">01 — Auslöser</span>
       <div class="usp-title">Ein Ereignis startet alles</div>
       <div class="usp-desc">Eine neue E-Mail, ein eingehendes PDF, ein Webhook — das System wartet im Hintergrund und reagiert automatisch, sobald etwas passiert.</div>
     </div>
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">02 — Verarbeitung</span>
+    <div class="usp-item" data-wm="02" style="--accent:var(--cyan)">
+      <span class="usp-num">02 — Verarbeitung</span>
       <div class="usp-title">KI liest, versteht, strukturiert</div>
       <div class="usp-desc">Ein Sprachmodell extrahiert die relevanten Informationen aus dem Dokument oder der Anfrage — präzise, ohne manuelle Nacharbeit, ohne Datenspeicherung für Dritte.</div>
     </div>
-    <div class="usp-item">
-      <span class="usp-num" style="color:var(--blue)">03 — Aktion</span>
+    <div class="usp-item" data-wm="03" style="--accent:var(--green)">
+      <span class="usp-num">03 — Aktion</span>
       <div class="usp-title">Ergebnis landet dort, wo es hingehört</div>
       <div class="usp-desc">Die sauberen Daten fließen direkt in Ihr bestehendes System — Excel, CRM, App oder E-Mail. Kein Copy-Paste, kein Medienbruch.</div>
     </div>
   </div>
-  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:3rem">100% DSGVO-konform · Server Nürnberg · KI-Modelle Frankfurt (EU) · Zero-Retention API-Anbindungen</p>
-
-  <!-- CASE STUDIES -->
-  <div class="section-label">Referenzen</div>
-  <h2>Echte Projekte</h2>
-  <p class="section-sub">Keine Mockups, kein Stock-Content. Alles davon läuft oder wird gerade gebaut.</p>
-  <div class="cases">
-    <div class="case wip">
-      <span class="case-tag tag-wip">In Abnahme</span>
-      <div class="case-title">Narrenzunft Hochdorf — Vereins-App</div>
-      <div class="case-desc">Flutter + Laravel 11: Mitgliederverwaltung, Veranstaltungskalender, Ridesharing, Dokumente, Dark-Mode CI.</div>
-      <div class="case-stack">
-        <span class="tag-tech">Flutter</span>
-        <span class="tag-tech">Laravel 11</span>
-        <span class="tag-tech">MariaDB</span>
-        <span class="tag-tech">IONOS</span>
-      </div>
-    </div>
-    <div class="case live">
-      <span class="case-tag tag-live">Veröffentlicht</span>
-      <div class="case-title">Kächele Sound &amp; Light</div>
-      <div class="case-desc">Unternehmensauftritt für Veranstaltungstechnik. Responsive, DSGVO-konform, gesichertes Kontaktformular-Backend.</div>
-      <div class="case-stack">
-        <span class="tag-tech">WordPress</span>
-        <span class="tag-tech">CF7</span>
-        <span class="tag-tech">DSGVO</span>
-      </div>
-    </div>
-    <div class="case next">
-      <span class="case-tag tag-next">In Planung</span>
-      <div class="case-title">Hölzer Jungs Hochdorf — VfB Fanclub App</div>
-      <div class="case-desc">Ticket-Verteilung, Punktesystem, KI-News-Feed (n8n + GPT), PayPal-Integration für den VfB Stuttgart Fanclub.</div>
-      <div class="case-stack">
-        <span class="tag-tech">Flutter</span>
-        <span class="tag-tech">Laravel</span>
-        <span class="tag-tech">Supabase</span>
-        <span class="tag-tech">n8n</span>
-      </div>
-    </div>
-  </div>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-3);margin-bottom:3rem">100% DSGVO-konform · Server Nürnberg · KI-Modelle Frankfurt (EU) · Zero-Retention · Sie behalten die Hoheit über Ihre Daten</p>
 
   <!-- LEISTUNGEN & PREISE -->
   <div class="section-label" id="leistungen">Leistungen & Preise</div>
   <h2>Was ich anbiete</h2>
   <p class="section-sub">Direkter Kontakt, faire Preise. Kein Agentur-Overhead, kein Outsourcing.</p>
-  <div class="price-grid">
+  <div class="price-grid" data-reveal>
     <div class="price-card">
       <div class="price-name">Landing Page</div>
       <div class="price-desc">Schnell, sauber, kein Overhead. Ideal für ein Produkt oder ein Event.</div>
@@ -370,7 +412,7 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
   </p>
 
   <!-- CTA -->
-  <div class="cta-strip">
+  <div class="cta-strip" data-reveal>
     <h3>Projekt in der Planung?</h3>
     <p>Schreiben Sie mir direkt — kein Formular, kein Callcenter.</p>
     <a href="mailto:info@pixelriverstudio.de" class="btn-primary">info@pixelriverstudio.de</a>
