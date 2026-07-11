@@ -30,35 +30,62 @@ description: Pixel River Studio entwickelt KI-gestützte Web-Apps, Mobile Apps u
     </div>
   </div>
 
-  <!-- KEY-VISUAL: Vorher / Nachher — gleiche Aufgabe, gewonnene Zeit -->
+  <!-- KEY-VISUAL: erzaehlter 12s-Loop — dieselbe Aufgabe, zwei Geschwindigkeiten -->
   <div class="hero-visual" aria-hidden="true">
     <span class="hv-glow"></span>
-    <div class="hv-compare">
+    <div class="hv-compare hv-cine">
+
+      <div class="hvc-trigger">
+        <span class="hvc-trigger-dot"></span>
+        Montag, 08:00 — neue Notizen &amp; PDFs sind da
+      </div>
+
       <div class="hv-lane hv-lane--now">
-        <span class="hv-lane-tag">Heute · von Hand</span>
+        <div class="hvc-head">
+          <span class="hv-lane-tag">Heute · von Hand</span>
+          <span class="hvc-clock hvc-clock--slow">
+            <span class="hvc-ticks">
+              <span class="hvc-t hvc-t-1">0:10</span>
+              <span class="hvc-t hvc-t-2">0:45</span>
+              <span class="hvc-t hvc-t-3">1:30</span>
+              <span class="hvc-t hvc-t-4">2:15</span>
+              <span class="hvc-t hvc-t-5">3:00</span>
+            </span>
+            <b>Std</b>
+          </span>
+        </div>
         <div class="hv-steps">
-          <span class="hv-step">Notiz abtippen</span>
-          <span class="hv-step">PDF kopieren</span>
-          <span class="hv-step">in Excel pflegen</span>
-          <span class="hv-step">jede Woche neu</span>
+          <span class="hv-step hvc-task hvc-task-1">Notiz abtippen</span>
+          <span class="hv-step hvc-task hvc-task-2">PDF kopieren</span>
+          <span class="hv-step hvc-task hvc-task-3">in Excel pflegen</span>
+          <span class="hv-step hvc-task hvc-task-4">jede Woche neu</span>
         </div>
         <div class="hv-metric hv-metric--slow">~3 Std / Woche · fehleranfällig</div>
       </div>
-      <div class="hv-vs">↓</div>
+
+      <div class="hv-vs hvc-vs">↓</div>
+
       <div class="hv-lane hv-lane--auto">
-        <span class="hv-lane-tag hv-lane-tag--accent">Mit Automatisierung</span>
-        <div class="hv-flow-mini">
-          <span class="hv-pill">Auslöser</span>
-          <span class="hv-arrow">→</span>
-          <span class="hv-pill">KI strukturiert</span>
-          <span class="hv-arrow">→</span>
-          <span class="hv-pill">ins System</span>
+        <div class="hvc-head">
+          <span class="hv-lane-tag hv-lane-tag--accent">Mit KI-Automatisierung</span>
+          <span class="hvc-clock hvc-clock--fast"><span class="hvc-stamp">12 Min ✓</span></span>
         </div>
+        <div class="hv-flow-mini">
+          <span class="hv-pill hvc-node hvc-node-1">Auslöser</span>
+          <span class="hv-arrow hvc-seg hvc-seg-1">→</span>
+          <span class="hv-pill hvc-node hvc-node-2">KI strukturiert</span>
+          <span class="hv-arrow hvc-seg hvc-seg-2">→</span>
+          <span class="hv-pill hvc-node hvc-node-3">ins System</span>
+        </div>
+        <div class="hvc-done">✓ erledigt um 08:12 — den Rest der Woche: Ruhe</div>
         <div class="hv-metric hv-metric--fast">~12 Min / Woche · immer gleich</div>
       </div>
-      <div class="hv-payoff">
+
+      <div class="hv-payoff hvc-payoff">
         <span class="hv-payoff-plus">+ 2,5 Std/Woche zurück</span> — für Mitglieder, Kunden, eigene Ideen
+        <span class="hvc-payoff-year">aufs Jahr: ≈ 16 Arbeitstage</span>
       </div>
+
     </div>
   </div>
 </section>

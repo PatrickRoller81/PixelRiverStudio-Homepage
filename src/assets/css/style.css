@@ -1181,6 +1181,213 @@ footer {
 }
 .hv-payoff-plus { color: var(--green); font-weight: 600; }
 
+/* ── HERO CINEMA (erzaehlter 12s-Loop: Zeitverlust vs. Zeitgewinn) ──
+   Alle Animationen teilen einen 12s-Master-Takt; die Fenster liegen in den
+   Keyframe-Prozenten (keine Delays) → dauerhaft synchron. Der Basiszustand
+   OHNE Animation ist das fertige Vergleichsbild — reduced-motion und No-JS
+   zeigen die volle Botschaft statisch.
+   Dramaturgie: 0% Auslöser · ab 5% ackert die Hand-Spur Task für Task und
+   die Uhr heizt auf Orange hoch · die KI-Spur ist bei 24% fertig und ruht ·
+   88% Payoff-Stempel · 93% Jahresprojektion. */
+.hv-cine { max-width: 322px; }
+
+.hvc-trigger {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 9px;
+  background: rgba(59,150,255,0.04);
+  animation: hvcTrigger 12s infinite;
+}
+.hvc-trigger-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  animation: hvcTriggerDot 12s infinite;
+}
+@keyframes hvcTrigger {
+  0%       { border-color: rgba(59,150,255,0.55); color: var(--text); }
+  6%, 100% { border-color: var(--border); color: var(--text-2); }
+}
+@keyframes hvcTriggerDot {
+  0%       { box-shadow: 0 0 0 0 rgba(59,150,255,0.5); }
+  6%, 100% { box-shadow: 0 0 0 9px rgba(59,150,255,0); }
+}
+
+/* lane head: tag left, big clock right — die Zahlen sind die Botschaft */
+.hvc-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.hvc-head .hv-lane-tag { margin-bottom: 0; }
+.hvc-clock {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+.hvc-clock b { font-size: 0.52rem; font-weight: 600; opacity: 0.75; }
+.hvc-clock--slow { color: var(--orange); animation: hvcSlowHeat 12s infinite; }
+.hvc-clock--fast { color: var(--green); }
+/* die Hand-Uhr heizt von neutral auf Warn-Orange hoch */
+@keyframes hvcSlowHeat {
+  0%, 30%  { color: var(--text-2); }
+  60%, 100%{ color: var(--orange); }
+}
+
+/* stacked count-up: genau ein Wert sichtbar; t-5 haelt statisch die Box */
+.hvc-ticks { position: relative; display: inline-block; min-width: 3.2ch; text-align: right; }
+.hvc-t   { position: absolute; right: 0; top: 0; opacity: 0; }
+.hvc-t-5 { position: static; opacity: 1; }
+.hvc-t-1 { animation: hvcT1 12s infinite; }
+.hvc-t-2 { animation: hvcT2 12s infinite; }
+.hvc-t-3 { animation: hvcT3 12s infinite; }
+.hvc-t-4 { animation: hvcT4 12s infinite; }
+.hvc-t-5 { animation: hvcT5 12s infinite; }
+@keyframes hvcT1 { 0%,4%{opacity:0} 5%,21%{opacity:1} 22%,100%{opacity:0} }
+@keyframes hvcT2 { 0%,22%{opacity:0} 23%,42%{opacity:1} 43%,100%{opacity:0} }
+@keyframes hvcT3 { 0%,43%{opacity:0} 44%,63%{opacity:1} 64%,100%{opacity:0} }
+@keyframes hvcT4 { 0%,64%{opacity:0} 65%,84%{opacity:1} 85%,100%{opacity:0} }
+@keyframes hvcT5 { 0%,85%{opacity:0} 86%,100%{opacity:1} }
+
+/* Hand-Spur: Tasks arbeiten sich sequenziell ab (Fortschritts-Unterstrich) */
+.hvc-task { position: relative; overflow: hidden; }
+.hvc-task::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--orange), rgba(245,158,11,0.35));
+  transform-origin: 0 50%;
+}
+.hvc-task-1 { animation: hvcTask1 12s infinite; }
+.hvc-task-2 { animation: hvcTask2 12s infinite; }
+.hvc-task-3 { animation: hvcTask3 12s infinite; }
+.hvc-task-4 { animation: hvcTask4 12s infinite; }
+.hvc-task-1::after { animation: hvcTaskBar1 12s infinite; }
+.hvc-task-2::after { animation: hvcTaskBar2 12s infinite; }
+.hvc-task-3::after { animation: hvcTaskBar3 12s infinite; }
+.hvc-task-4::after { animation: hvcTaskBar4 12s infinite; }
+@keyframes hvcTask1 {
+  0%,4%    { opacity: .38; color: var(--text-3); border-color: var(--border); background: rgba(148,163,184,0.03); }
+  5%,23%   { opacity: 1; color: var(--text); border-color: rgba(245,158,11,0.55); background: rgba(245,158,11,0.08); }
+  25%,100% { opacity: .78; color: var(--text-2); border-color: var(--border); background: rgba(148,163,184,0.07); }
+}
+@keyframes hvcTask2 {
+  0%,24%   { opacity: .38; color: var(--text-3); border-color: var(--border); background: rgba(148,163,184,0.03); }
+  25%,43%  { opacity: 1; color: var(--text); border-color: rgba(245,158,11,0.55); background: rgba(245,158,11,0.08); }
+  45%,100% { opacity: .78; color: var(--text-2); border-color: var(--border); background: rgba(148,163,184,0.07); }
+}
+@keyframes hvcTask3 {
+  0%,44%   { opacity: .38; color: var(--text-3); border-color: var(--border); background: rgba(148,163,184,0.03); }
+  45%,63%  { opacity: 1; color: var(--text); border-color: rgba(245,158,11,0.55); background: rgba(245,158,11,0.08); }
+  65%,100% { opacity: .78; color: var(--text-2); border-color: var(--border); background: rgba(148,163,184,0.07); }
+}
+@keyframes hvcTask4 {
+  0%,64%   { opacity: .38; color: var(--text-3); border-color: var(--border); background: rgba(148,163,184,0.03); }
+  65%,83%  { opacity: 1; color: var(--text); border-color: rgba(245,158,11,0.55); background: rgba(245,158,11,0.08); }
+  85%,100% { opacity: .78; color: var(--text-2); border-color: var(--border); background: rgba(148,163,184,0.07); }
+}
+@keyframes hvcTaskBar1 { 0%,4%{transform:scaleX(0)} 24%,100%{transform:scaleX(1)} }
+@keyframes hvcTaskBar2 { 0%,24%{transform:scaleX(0)} 44%,100%{transform:scaleX(1)} }
+@keyframes hvcTaskBar3 { 0%,44%{transform:scaleX(0)} 64%,100%{transform:scaleX(1)} }
+@keyframes hvcTaskBar4 { 0%,64%{transform:scaleX(0)} 84%,100%{transform:scaleX(1)} }
+
+/* Uebergabe-Moment: der Pfeil blitzt kurz auf, wenn die Aufgabe verteilt wird */
+.hvc-vs { animation: hvcVs 12s infinite; }
+@keyframes hvcVs {
+  0%,2%   { opacity: .4; }
+  3%,5%   { opacity: 1; color: var(--cyan); }
+  8%,100% { opacity: .55; }
+}
+
+/* KI-Spur: Pipeline zuendet Knoten fuer Knoten, ist bei 24% fertig — und ruht */
+.hvc-node-1 { animation: hvcNode1 12s infinite; }
+.hvc-node-2 { animation: hvcNode2 12s infinite; }
+.hvc-node-3 { animation: hvcNode3 12s infinite; }
+@keyframes hvcNode1 {
+  0%,4%    { opacity: .45; box-shadow: none; }
+  6%,10%   { opacity: 1; box-shadow: 0 0 12px rgba(59,150,255,0.4); }
+  12%,100% { opacity: 1; box-shadow: none; }
+}
+@keyframes hvcNode2 {
+  0%,9%    { opacity: .45; box-shadow: none; }
+  11%,18%  { opacity: 1; box-shadow: 0 0 12px rgba(34,211,238,0.4); }
+  20%,100% { opacity: 1; box-shadow: none; }
+}
+@keyframes hvcNode3 {
+  0%,18%   { opacity: .45; border-color: rgba(59,150,255,0.25); box-shadow: none; }
+  20%,23%  { opacity: 1; border-color: rgba(16,217,114,0.6); box-shadow: 0 0 14px rgba(16,217,114,0.35); }
+  26%,100% { opacity: 1; border-color: rgba(59,150,255,0.25); box-shadow: none; }
+}
+.hvc-seg-1 { animation: hvcSeg1 12s infinite; }
+.hvc-seg-2 { animation: hvcSeg2 12s infinite; }
+@keyframes hvcSeg1 { 0%,5%{opacity:.25} 7%,9%{opacity:1;color:var(--cyan)} 11%,100%{opacity:.6} }
+@keyframes hvcSeg2 { 0%,12%{opacity:.25} 14%,17%{opacity:1;color:var(--cyan)} 19%,100%{opacity:.6} }
+
+/* „12 Min ✓" stempelt, sobald die Pipeline durch ist */
+.hvc-stamp { display: inline-block; animation: hvcStamp 12s infinite; }
+@keyframes hvcStamp {
+  0%,21%   { opacity: 0; transform: scale(0.8); }
+  23%      { opacity: 1; transform: scale(1.14); }
+  25%,100% { opacity: 1; transform: scale(1); }
+}
+.hvc-done {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  line-height: 1.45;
+  color: var(--green);
+  border-left: 2px solid var(--green);
+  padding-left: 8px;
+  animation: hvcDone 12s infinite;
+}
+@keyframes hvcDone {
+  0%,21%   { opacity: 0; transform: translateY(3px); }
+  24%,100% { opacity: 1; transform: none; }
+}
+
+/* Payoff: waehrend des Loops gedimmt lesbar, am Ende der Stempel */
+.hvc-payoff { animation: hvcPayoff 12s infinite; }
+@keyframes hvcPayoff {
+  0%,84%   { opacity: 0.3; }
+  88%,100% { opacity: 1; }
+}
+.hvc-payoff .hv-payoff-plus { display: inline-block; animation: hvcPayoffPop 12s infinite; }
+@keyframes hvcPayoffPop {
+  0%,84%   { transform: scale(1); }
+  88%      { transform: scale(1.07); }
+  91%,100% { transform: scale(1); }
+}
+.hvc-payoff-year {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--green);
+  animation: hvcYear 12s infinite;
+}
+@keyframes hvcYear {
+  0%,89%   { opacity: 0; transform: translateY(4px); }
+  93%,100% { opacity: 1; transform: none; }
+}
+
 /* hero thesis line — the core message */
 .hero-thesis {
   font-size: 0.9rem;
@@ -1225,6 +1432,8 @@ footer {
   [data-reveal] > * { opacity: 1 !important; transform: none !important; transition: none; animation: none !important; }
   /* elevate-visual-polish additions */
   body::before, .cta-strip, .price-card.highlight { animation: none !important; }
+  /* hero-timegain-cinema: Loop einfrieren → statisches Endbild bleibt komplett lesbar */
+  [class*="hvc-"], [class*="hvc-"]::before, [class*="hvc-"]::after { animation: none !important; }
   .js .hero-copy > *, .js .hero-visual { animation: none !important; opacity: 1; }
   .ticker-inner { animation: none; }
   .ticker-wrap { -webkit-mask-image: none; mask-image: none; }
