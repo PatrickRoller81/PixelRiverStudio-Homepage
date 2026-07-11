@@ -57,10 +57,45 @@ body::before {
     radial-gradient(62% 42% at 50% -6%, rgba(59,150,255,0.12), transparent 70%),
     radial-gradient(46% 36% at 102% 6%, rgba(34,211,238,0.07), transparent 70%),
     radial-gradient(42% 32% at -4% 26%, rgba(167,139,250,0.06), transparent 72%);
+  animation: ambientDrift 42s ease-in-out infinite;
+}
+/* the glow field breathes very slowly — barely conscious, keeps the canvas alive */
+@keyframes ambientDrift {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 1; }
+  50%      { transform: translate3d(0,-2.5%,0) scale(1.04); opacity: 0.82; }
 }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { display: block; max-width: 100%; }
+
+/* ── DETAIL POLISH (selection · focus · scrollbar) ── */
+::selection { background: rgba(59,150,255,0.28); color: var(--text); }
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+html { scrollbar-color: var(--surface-3) var(--bg); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--border-lit); }
+
+/* ── SCROLL PROGRESS (blue→cyan hairline above the header) ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 300;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  pointer-events: none;
+}
 
 /* ── HEADER / NAV ── */
 header {
@@ -106,12 +141,26 @@ nav {
   gap: 1.75rem;
 }
 .nav-links a {
+  position: relative;
   font-size: 0.8rem;
   color: var(--text-2);
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text); }
+/* animated underline — slides in from the left, CI blue→cyan */
+.nav-links a:not(.btn-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -5px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.28s cubic-bezier(.22,.61,.36,1);
+}
+.nav-links a:not(.btn-cta):hover::after,
+.nav-links a:not(.btn-cta):focus-visible::after { transform: scaleX(1); }
 .btn-cta {
   background: var(--blue);
   color: #fff !important;
@@ -165,7 +214,11 @@ nav {
   -webkit-text-stroke: 0px transparent;
 }
 .hero h1 .accent {
-  color: var(--blue);
+  color: var(--blue); /* fallback */
+  background: linear-gradient(92deg, var(--blue) 15%, var(--cyan) 105%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero-sub {
   font-size: 0.95rem;
@@ -180,6 +233,8 @@ nav {
   flex-wrap: wrap;
 }
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   background: var(--blue);
   color: #fff;
   padding: 0.65rem 1.5rem;
@@ -193,6 +248,18 @@ nav {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(59,150,255,0.3);
 }
+/* sheen sweep on hover — same motif as the device mockups */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+    transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after { transform: translateX(130%); }
 .btn-outline {
   padding: 0.65rem 1.5rem;
   border: 1px solid var(--border-lit);
@@ -207,12 +274,33 @@ nav {
   color: var(--text);
 }
 
+/* ── HERO ENTRANCE (staggered rise, JS-gated → no-JS shows everything) ── */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.js .hero-copy > * {
+  opacity: 0;
+  animation: heroRise 0.65s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.js .hero-copy > *:nth-child(1) { animation-delay: 0.05s; }
+.js .hero-copy > *:nth-child(2) { animation-delay: 0.14s; }
+.js .hero-copy > *:nth-child(3) { animation-delay: 0.26s; }
+.js .hero-copy > *:nth-child(4) { animation-delay: 0.38s; }
+.js .hero-copy > *:nth-child(5) { animation-delay: 0.50s; }
+.js .hero-visual {
+  opacity: 0;
+  animation: heroRise 0.8s cubic-bezier(.22,.61,.36,1) 0.4s forwards;
+}
+
 /* ── TICKER ── */
 .ticker-wrap {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   padding: 0.65rem 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 .ticker-inner {
   display: flex;
@@ -221,6 +309,7 @@ nav {
   white-space: nowrap;
   width: max-content;
 }
+.ticker-wrap:hover .ticker-inner { animation-play-state: paused; }
 @keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 .tick-item {
   font-family: var(--font-mono);
@@ -257,7 +346,7 @@ nav {
   display: inline-block;
   width: 18px;
   height: 1px;
-  background: var(--blue);
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
   flex-shrink: 0;
 }
 .section h2 {
@@ -343,6 +432,14 @@ nav {
 }
 .usp-item:hover::after  { opacity: 0.15; transform: translateY(-4px); }
 .usp-item:hover::before { opacity: 0.95; }
+/* accent-tinted hover glow — each card glows in its own CI accent */
+@supports (color: color-mix(in srgb, red 10%, transparent)) {
+  .usp-item:hover,
+  .price-card:hover {
+    box-shadow: 0 18px 42px rgba(0,0,0,0.5),
+                0 0 30px color-mix(in srgb, var(--accent) 13%, transparent);
+  }
+}
 .usp-num {
   position: relative;
   z-index: 1;
@@ -542,6 +639,13 @@ nav {
   background: var(--surface-2);
   border-top-color: var(--blue);
   box-shadow: 0 0 0 1px rgba(59,150,255,0.18), 0 14px 36px rgba(0,0,0,0.4);
+  animation: highlightBreath 6s ease-in-out infinite;
+}
+/* the recommended tier breathes gently — draws the eye without shouting */
+@keyframes highlightBreath {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(59,150,255,0.18), 0 14px 36px rgba(0,0,0,0.4); }
+  50%      { box-shadow: 0 0 0 1px rgba(59,150,255,0.36), 0 14px 40px rgba(0,0,0,0.45),
+                         0 0 26px rgba(59,150,255,0.12); }
 }
 .price-card.highlight::after {
   content: 'Beliebt';
@@ -562,16 +666,29 @@ nav {
 .price-val   { font-family: var(--font-mono); font-size: 0.95rem; color: var(--blue); font-weight: 600; }
 .price-note  { font-family: var(--font-mono); font-size: 0.58rem; color: var(--text-3); display: block; margin-top: 0.2rem; }
 
-/* ── CTA STRIP ── */
+/* ── CTA STRIP (animated CI gradient ring: blue→cyan→purple) ── */
+@property --cta-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
 .cta-strip {
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
+  border-radius: 10px;
   padding: 2.5rem 2rem;
   text-align: center;
-  background: var(--surface);
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    conic-gradient(from var(--cta-angle),
+      rgba(59,150,255,0.55), rgba(34,211,238,0.30),
+      var(--purple), rgba(59,150,255,0.55)) border-box;
   margin-bottom: 4rem;
   position: relative;
   overflow: hidden;
+  animation: ctaBorder 9s linear infinite;
 }
+/* browsers without @property keep a static gradient ring — still on-brand */
+@keyframes ctaBorder { to { --cta-angle: 360deg; } }
 .cta-strip::before {
   content: '';
   position: absolute;
@@ -749,9 +866,14 @@ footer {
   border: 1px solid var(--border);
   border-left: 3px solid var(--cyan);
   padding: 1.1rem 1.25rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s,
+              transform 0.28s cubic-bezier(.22,.61,.36,1), box-shadow 0.28s ease;
 }
-.devlog-post:hover { border-left-color: var(--blue); }
+.devlog-post:hover {
+  border-left-color: var(--blue);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
 .devlog-post time {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -936,6 +1058,24 @@ footer {
   opacity: 1;
   transform: none;
 }
+/* stagger variant: the container stays put, its children cascade in.
+   Uses a keyframe with backwards-fill (not a transition) so the cards'
+   own hover transforms keep working after the reveal. */
+.js [data-reveal="stagger"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.js [data-reveal="stagger"]:not(.is-visible) > * { opacity: 0; }
+.js [data-reveal="stagger"].is-visible > * {
+  animation: riseIn 0.6s cubic-bezier(.22,.61,.36,1) backwards;
+}
+.js [data-reveal="stagger"].is-visible > *:nth-child(2) { animation-delay: 0.08s; }
+.js [data-reveal="stagger"].is-visible > *:nth-child(3) { animation-delay: 0.16s; }
+.js [data-reveal="stagger"].is-visible > *:nth-child(4) { animation-delay: 0.24s; }
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(18px); }
+}
 
 /* ── HERO SPLIT + KEY-VISUAL (Automations-Pipeline) ── */
 .hero-split {
@@ -1082,6 +1222,15 @@ footer {
   .device-stage:hover .device-float { transform: none; box-shadow: none; }
   .device-sheen { display: none; }
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+  [data-reveal] > * { opacity: 1 !important; transform: none !important; transition: none; animation: none !important; }
+  /* elevate-visual-polish additions */
+  body::before, .cta-strip, .price-card.highlight { animation: none !important; }
+  .js .hero-copy > *, .js .hero-visual { animation: none !important; opacity: 1; }
+  .ticker-inner { animation: none; }
+  .ticker-wrap { -webkit-mask-image: none; mask-image: none; }
+  .scroll-progress { display: none; }
+  .btn-primary::after, .nav-links a:not(.btn-cta)::after { display: none; }
+  .devlog-post:hover { transform: none; }
 }
 
 /* ── RESPONSIVE ── */
