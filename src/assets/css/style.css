@@ -38,6 +38,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
+  overflow-x: clip; /* Sicherheitsnetz: nichts verbreitert die Seite auf dem Handy */
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -295,6 +296,8 @@ nav {
 
 /* ── TICKER ── */
 .ticker-wrap {
+  contain: paint;
+  max-width: 100%;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
@@ -859,7 +862,18 @@ footer {
   font-style: italic;
   margin: 1.25rem 0;
 }
-.prose-devlog img  { max-width: 100%; border-radius: 6px; margin: 1.25rem 0; }
+.prose-devlog img  { max-width: 100%; height: auto; border-radius: 6px; margin: 1.25rem 0; }
+.prose-devlog figure { margin: 1.5rem 0; }
+.prose-devlog figure img { display: block; margin: 0; border: 1px solid var(--border); }
+.prose-devlog figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-3);
+  margin-top: 0.45rem;
+  line-height: 1.5;
+}
+.prose-devlog .fig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-items: start; }
+@media (max-width: 680px) { .prose-devlog .fig-row { grid-template-columns: 1fr; } }
 
 /* ── DEVLOG HUB ── */
 .devlog-post {
