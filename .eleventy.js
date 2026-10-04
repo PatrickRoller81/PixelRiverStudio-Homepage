@@ -1,6 +1,9 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Cache-Busting: neue CSS-Version nach jedem Deploy, sonst zeigen Browser altes Layout
+  eleventyConfig.addGlobalData("buildTime", () => Date.now().toString(36));
+
   eleventyConfig.addCollection("devlog", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/devlog/posts/*.md")
