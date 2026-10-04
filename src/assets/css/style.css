@@ -612,7 +612,7 @@ nav {
 /* ── PREISE (energized cards) ── */
 .price-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 0.85rem;
   margin-bottom: 1.5rem;
 }
@@ -650,7 +650,7 @@ nav {
 .price-card.highlight::after {
   content: 'Beliebt';
   position: absolute;
-  top: 0.9rem;
+  top: 0.7rem;
   right: 0.9rem;
   font-family: var(--font-mono);
   font-size: 0.5rem;
@@ -662,6 +662,7 @@ nav {
   padding: 0.1rem 0.4rem;
 }
 .price-name  { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.45rem; }
+.price-card.highlight .price-name { margin-top: 0.9rem; }
 .price-desc  { font-size: 0.72rem; color: var(--text-2); line-height: 1.6; margin-bottom: 0.85rem; }
 .price-val   { font-family: var(--font-mono); font-size: 0.95rem; color: var(--blue); font-weight: 600; }
 .price-note  { font-family: var(--font-mono); font-size: 0.58rem; color: var(--text-3); display: block; margin-top: 0.2rem; }
@@ -1456,4 +1457,25 @@ footer {
   nav           { padding: 0.85rem 1rem; }
   .nav-links li:not(:last-child) { display: none; }
   footer        { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Werbevideo-Showcase ─────────────────────────── */
+.video-showcase {
+  margin: 0 0 2.5rem;
+}
+.video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(0,0,0,.45);
+}
+.video-caption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-3);
+  margin-top: 0.6rem;
 }
