@@ -37,6 +37,19 @@ test('Werbevideo is offered as a service and as a price card', () => {
   assert.match(prices, /price-name">Werbevideo[\s\S]*?price-val">auf Anfrage/, 'price card missing');
 });
 
+test('video never exceeds the content column, even with a stale stylesheet', () => {
+  const html = read('index.html');
+  assert.match(html, /<video[^>]*width="1920" height="1080"/, 'video needs intrinsic size attributes');
+  assert.match(html, /<video[^>]*style="[^"]*max-width:100%/, 'video needs an inline max-width fallback');
+  const i = html.indexOf('class="video-showcase"');
+  const j = html.indexOf('class="usp-grid"', i);
+  assert.ok(i !== -1 && j > i, 'video and its tiles must share the section column');
+});
+
+test('stylesheet link is cache-busted per build', () => {
+  assert.match(read('index.html'), /href="\/assets\/css\/style\.css\?v=[0-9a-z]+"/, 'CSS link needs ?v=<build>');
+});
+
 test('nav links to the video', () => {
   assert.ok(read('index.html').includes('href="/#werbevideo"'), 'nav link missing');
 });
