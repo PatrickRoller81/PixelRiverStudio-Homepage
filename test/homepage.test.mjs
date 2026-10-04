@@ -32,7 +32,7 @@ test('footer shows the new postal address, street unchanged', () => {
   assert.ok(!html.includes('72160'), 'old PLZ 72160 still present');
 });
 
-test('Impressum (§5 TMG) carries the new address', () => {
+test('Impressum (§5 DDG) carries the new address', () => {
   const html = impressum();
   assert.ok(html.includes('72202 Nagold-Hochdorf'), 'impressum missing new PLZ/Ort');
   assert.ok(html.includes('Im Reesengarten 29'), 'impressum street changed unexpectedly');
