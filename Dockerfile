@@ -4,10 +4,10 @@
 #
 # @11ty/eleventy liegt in devDependencies -> Coolify setzt im Build oft
 # NODE_ENV=production, daher explizit devDeps erzwingen.
-FROM node:20-alpine
+FROM node:22-alpine
 WORKDIR /app
 ENV NODE_ENV=development
 COPY package*.json ./
-RUN npm install --include=dev
+RUN npm ci --include=dev
 COPY . .
 RUN npx @11ty/eleventy   # erzeugt /app/_site
