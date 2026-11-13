@@ -3,6 +3,14 @@
    CI v1.0.0 — Syne + JetBrains Mono — Dark Only
    ============================================================ */
 
+/* SELBST GEHOSTETE SCHRIFTEN (Subset latin, SIL OFL 1.1, Lizenzen in /assets/fonts/) */
+@font-face { font-family: 'Syne'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/syne-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Syne'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/syne-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Syne'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/syne-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Syne'; font-style: normal; font-weight: 800; font-display: swap; src: url(/assets/fonts/syne-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/jetbrains-mono-latin-600-normal.woff2) format('woff2'); }
+
 /* CUSTOM PROPERTIES */
 :root {
   --bg:         #0b1016;

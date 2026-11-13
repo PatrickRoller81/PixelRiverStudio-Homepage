@@ -44,3 +44,23 @@ test('api.anthropic.com kommt in _site nirgends vor', () => {
     assert.ok(!readFileSync(f, 'utf8').includes('api.anthropic.com'), `api.anthropic.com in ${f}`);
   }
 });
+
+test('kein Google-Fonts-Host in _site, Schriften werden selbst gehostet', () => {
+  for (const f of files().filter((x) => /\.(html|js|css|json|xml|txt)$/.test(x))) {
+    const c = readFileSync(f, 'utf8');
+    assert.ok(!/googleapis|gstatic/i.test(c), `Google-Fonts-Host in ${f}`);
+  }
+  const fonts = files().filter((x) => x.endsWith('.woff2'));
+  assert.ok(fonts.length >= 6, `nur ${fonts.length} woff2-Dateien in _site`);
+});
+
+test('jede url() der @font-face-Regeln zeigt auf eine vorhandene Datei', () => {
+  const css = readFileSync(join(site, 'assets', 'css', 'style.css'), 'utf8');
+  const faces = [...css.matchAll(/@font-face\s*\{[^}]*\}/g)].map((m) => m[0]);
+  assert.ok(faces.length >= 6, `nur ${faces.length} @font-face-Regeln`);
+  for (const face of faces) {
+    const u = face.match(/url\(([^)]+)\)/);
+    assert.ok(u, 'url() fehlt in @font-face');
+    assert.ok(existsSync(join(site, u[1].replace(/['"]/g, ''))), `Schriftdatei fehlt: ${u[1]}`);
+  }
+});
